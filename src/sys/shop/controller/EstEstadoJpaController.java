@@ -7,9 +7,8 @@ package sys.shop.controller;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import sys.shop.controller.exceptions.NonexistentEntityException;
@@ -20,17 +19,8 @@ import sys.shop.entity.EstEstado;
  *
  * @author paulo
  */
-public class EstEstadoJpaController implements Serializable {
-
-    public EstEstadoJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
-    }
-    private EntityManagerFactory emf = null;
-
-    public EntityManager getEntityManager() {
-        return emf.createEntityManager();
-    }
-
+public class EstEstadoJpaController extends PersistenceManager implements Serializable {
+    
     public void create(EstEstado estEstado) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
