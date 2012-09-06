@@ -1,0 +1,133 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package sys.shop.entity;
+
+import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+/**
+ *
+ * @author paulo
+ */
+@Entity
+@Table(name = "tim_tipo_mercadoria")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "TimTipoMercadoria.findAll", query = "SELECT t FROM TimTipoMercadoria t"),
+    @NamedQuery(name = "TimTipoMercadoria.findByTimId", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timId = :timId"),
+    @NamedQuery(name = "TimTipoMercadoria.findByTimNome", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timNome = :timNome"),
+    @NamedQuery(name = "TimTipoMercadoria.findByTimSigla", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timSigla = :timSigla"),
+    @NamedQuery(name = "TimTipoMercadoria.findByTimDtcadastro", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timDtcadastro = :timDtcadastro"),
+    @NamedQuery(name = "TimTipoMercadoria.findByTimDescricao", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timDescricao = :timDescricao"),
+    @NamedQuery(name = "TimTipoMercadoria.findByTimStatus", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timStatus = :timStatus")})
+public class TimTipoMercadoria implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "tim_id")
+    private Integer timId;
+    @Column(name = "tim_nome")
+    private String timNome;
+    @Column(name = "tim_sigla")
+    private String timSigla;
+    @Column(name = "tim_dtcadastro")
+    @Temporal(TemporalType.DATE)
+    private Date timDtcadastro;
+    @Column(name = "tim_descricao")
+    private String timDescricao;
+    @Column(name = "tim_status")
+    private Character timStatus;
+
+    public TimTipoMercadoria() {
+    }
+
+    public TimTipoMercadoria(Integer timId) {
+        this.timId = timId;
+    }
+
+    public Integer getTimId() {
+        return timId;
+    }
+
+    public void setTimId(Integer timId) {
+        this.timId = timId;
+    }
+
+    public String getTimNome() {
+        return timNome;
+    }
+
+    public void setTimNome(String timNome) {
+        this.timNome = timNome;
+    }
+
+    public String getTimSigla() {
+        return timSigla;
+    }
+
+    public void setTimSigla(String timSigla) {
+        this.timSigla = timSigla;
+    }
+
+    public Date getTimDtcadastro() {
+        return timDtcadastro;
+    }
+
+    public void setTimDtcadastro(Date timDtcadastro) {
+        this.timDtcadastro = timDtcadastro;
+    }
+
+    public String getTimDescricao() {
+        return timDescricao;
+    }
+
+    public void setTimDescricao(String timDescricao) {
+        this.timDescricao = timDescricao;
+    }
+
+    public Character getTimStatus() {
+        return timStatus;
+    }
+
+    public void setTimStatus(Character timStatus) {
+        this.timStatus = timStatus;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (timId != null ? timId.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof TimTipoMercadoria)) {
+            return false;
+        }
+        TimTipoMercadoria other = (TimTipoMercadoria) object;
+        if ((this.timId == null && other.timId != null) || (this.timId != null && !this.timId.equals(other.timId))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "sys.shop.entity.TimTipoMercadoria[ timId=" + timId + " ]";
+    }
+    
+}

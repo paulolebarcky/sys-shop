@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="sys-shopPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>sys.shop.entity.VedVendedor</class>
+    <class>sys.shop.entity.MerMercadoria</class>
+    <class>sys.shop.entity.CliCliente</class>
+    <class>sys.shop.entity.ForFornecedor</class>
+    <class>sys.shop.entity.ComCompra</class>
+    <class>sys.shop.entity.PgvPagamentoVenda</class>
+    <class>sys.shop.entity.TimTipoMercadoria</class>
+    <class>sys.shop.entity.VenVenda</class>
+    <class>sys.shop.entity.FopFormaPagamento</class>
+    <class>sys.shop.entity.LojLoja</class>
+    <class>sys.shop.entity.CidCidade</class>
+    <class>sys.shop.entity.MecMercadoriaCompra</class>
+    <class>sys.shop.entity.MevMercadoriaVenda</class>
+    <class>sys.shop.entity.EstEstado</class>
+    <class>sys.shop.entity.TivTipoVenda</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://127.0.0.1:5433/sysdb"/>
+      <property name="javax.persistence.jdbc.password" value="plus"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.user" value="plus"/>
+    </properties>
+  </persistence-unit>
+</persistence>
