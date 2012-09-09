@@ -5,8 +5,10 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
- *
+ * Fábrica de entitymanager.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 public class PersistenceManager {
 

@@ -13,6 +13,7 @@ import sys.shop.controller.exceptions.NonexistentEntityException;
  * Classe abstrata para tratar funções genéricas de crud.
  *
  * @author paulo
+ * @since 2012-09-09
  */
 public abstract class PrincipalController<T> extends PersistenceManager implements Serializable {
 
