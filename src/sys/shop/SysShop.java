@@ -4,6 +4,7 @@
  */
 package sys.shop;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import sys.shop.controller.EstEstadoJpaController;
@@ -20,22 +21,67 @@ public class SysShop {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         
-        System.out.println("Entering Tests");
-        
-        EstEstadoJpaController estado = new EstEstadoJpaController();
-        EstEstado estEstado = new EstEstado(); 
-        estEstado.setEstId(2);
-        estEstado.setEstNome("Espirito Santo");
-        estEstado.setEstSigla("ES");
+        findAll();
+    }
+
+    public static void create() {
+        System.out.println("Create entering Tests");
+
+        EstEstado estEstado = new EstEstado();
+        estEstado.setEstId(3);
+        estEstado.setEstNome("Rio de Janeiro");
+        estEstado.setEstSigla("RJ");
+
+        EstEstadoJpaController estado = new EstEstadoJpaController(estEstado);
+
         try {
-            estado.create(estEstado);
+            estado.create();
         } catch (PreexistingEntityException ex) {
             Logger.getLogger(SysShop.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(SysShop.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
+    }
+
+    public static void remove() {
+        System.out.println("Remove entering Tests");
+
+        EstEstado estEstado = new EstEstado();
+        estEstado.setEstId(3);
+        estEstado.setEstNome("Rio de Janeiro");
+        estEstado.setEstSigla("RJ");
+
+        EstEstadoJpaController estado = new EstEstadoJpaController(estEstado);
+
+        try {
+            estado.remove(3);
+        } catch (Exception ex) {
+            Logger.getLogger(SysShop.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    public static void findAll() {
+        System.out.println("Remove entering Tests");
+
+        EstEstado estEstado = new EstEstado();
+        estEstado.setEstId(3);
+        estEstado.setEstNome("Rio de Janeiro");
+        estEstado.setEstSigla("RJ");
+
+        EstEstadoJpaController estado = new EstEstadoJpaController(estEstado);
+
+        try {
+            List<EstEstado> listEstados = estado.findEntities();
+            
+            for (EstEstado estEstado1 : listEstados) {
+                System.out.println(estEstado1.toString());
+            }
+            
+        } catch (Exception ex) {
+            Logger.getLogger(SysShop.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
