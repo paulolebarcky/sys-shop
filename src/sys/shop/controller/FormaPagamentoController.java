@@ -8,9 +8,9 @@ import sys.shop.entity.FopFormaPagamento;
  * @author paulo
  * @since 2012-09-09
  */
-public class FopFormaPagamentoJpaController extends PrincipalController<FopFormaPagamento> {
+public class FormaPagamentoController extends PrincipalController<FopFormaPagamento> {
 
-    public FopFormaPagamentoJpaController(FopFormaPagamento t) {
+    public FormaPagamentoController(FopFormaPagamento t) {
         super(t);
     }
     

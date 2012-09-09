@@ -8,9 +8,9 @@ import sys.shop.entity.MerMercadoria;
  * @author paulo
  * @since 2012-09-09
  */
-public class MerMercadoriaJpaController extends PrincipalController<MerMercadoria> {
+public class MercadoriaController extends PrincipalController<MerMercadoria> {
 
-    public MerMercadoriaJpaController(MerMercadoria t) {
+    public MercadoriaController(MerMercadoria t) {
         super(t);
     }
 }

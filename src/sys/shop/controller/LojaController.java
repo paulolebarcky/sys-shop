@@ -8,9 +8,9 @@ import sys.shop.entity.LojLoja;
  * @author paulo
  * @since 2012-09-09
  */
-public class LojLojaJpaController extends PrincipalController<LojLoja> {
+public class LojaController extends PrincipalController<LojLoja> {
 
-    public LojLojaJpaController(LojLoja t) {
+    public LojaController(LojLoja t) {
         super(t);
     }
 }

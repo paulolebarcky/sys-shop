@@ -8,9 +8,9 @@ import sys.shop.entity.TivTipoVenda;
  * @author paulo
  * @since 2012-09-09
  */
-public class TivTipoVendaJpaController extends PrincipalController<TivTipoVenda> {
+public class TipoVendaController extends PrincipalController<TivTipoVenda> {
 
-    public TivTipoVendaJpaController(TivTipoVenda t) {
+    public TipoVendaController(TivTipoVenda t) {
         super(t);
     }
 }

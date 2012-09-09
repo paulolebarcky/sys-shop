@@ -8,9 +8,9 @@ import sys.shop.entity.CidCidade;
  * @author paulo
  * @since 2012-09-09
  */
-public class CidCidadeJpaController extends PrincipalController<CidCidade> {
+public class CidadeController extends PrincipalController<CidCidade> {
 
-    public CidCidadeJpaController(CidCidade t) {
+    public CidadeController(CidCidade t) {
         super(t);
     }
 }

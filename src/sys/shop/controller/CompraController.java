@@ -8,9 +8,9 @@ import sys.shop.entity.ComCompra;
  * @author paulo
  * @since 2012-09-09
  */
-public class ComCompraJpaController extends PrincipalController<ComCompra> {
+public class CompraController extends PrincipalController<ComCompra> {
 
-    public ComCompraJpaController(ComCompra t) {
+    public CompraController(ComCompra t) {
         super(t);
     }
 }

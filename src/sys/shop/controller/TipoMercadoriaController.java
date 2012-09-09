@@ -8,9 +8,9 @@ import sys.shop.entity.TimTipoMercadoria;
  * @author paulo
  * @since 2012-09-09
  */
-public class TimTipoMercadoriaJpaController extends PrincipalController<TimTipoMercadoria> {
+public class TipoMercadoriaController extends PrincipalController<TimTipoMercadoria> {
 
-    public TimTipoMercadoriaJpaController(TimTipoMercadoria t) {
+    public TipoMercadoriaController(TimTipoMercadoria t) {
         super(t);
     }
 }

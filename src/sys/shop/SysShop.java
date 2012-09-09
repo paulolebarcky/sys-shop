@@ -7,7 +7,7 @@ package sys.shop;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sys.shop.controller.EstEstadoJpaController;
+import sys.shop.controller.EstadoController;
 import sys.shop.controller.exceptions.PreexistingEntityException;
 import sys.shop.entity.EstEstado;
 
@@ -33,7 +33,7 @@ public class SysShop {
         estEstado.setEstNome("Rio de Janeiro");
         estEstado.setEstSigla("RJ");
 
-        EstEstadoJpaController estado = new EstEstadoJpaController(estEstado);
+        EstadoController estado = new EstadoController(estEstado);
 
         try {
             estado.create();
@@ -53,7 +53,7 @@ public class SysShop {
         estEstado.setEstNome("Rio de Janeiro");
         estEstado.setEstSigla("RJ");
 
-        EstEstadoJpaController estado = new EstEstadoJpaController(estEstado);
+        EstadoController estado = new EstadoController(estEstado);
 
         try {
             estado.remove(3);
@@ -71,7 +71,7 @@ public class SysShop {
         estEstado.setEstNome("Rio de Janeiro");
         estEstado.setEstSigla("RJ");
 
-        EstEstadoJpaController estado = new EstEstadoJpaController(estEstado);
+        EstadoController estado = new EstadoController(estEstado);
 
         try {
             List<EstEstado> listEstados = estado.findEntities();

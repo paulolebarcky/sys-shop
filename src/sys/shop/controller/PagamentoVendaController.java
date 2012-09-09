@@ -8,9 +8,9 @@ import sys.shop.entity.PgvPagamentoVenda;
  * @author paulo
  * @since 2012-09-09
  */
-public class PgvPagamentoVendaJpaController extends PrincipalController<PgvPagamentoVenda> {
+public class PagamentoVendaController extends PrincipalController<PgvPagamentoVenda> {
 
-    public PgvPagamentoVendaJpaController(PgvPagamentoVenda t) {
+    public PagamentoVendaController(PgvPagamentoVenda t) {
         super(t);
     }
 }

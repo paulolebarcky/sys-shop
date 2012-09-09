@@ -8,9 +8,9 @@ import sys.shop.entity.MecMercadoriaCompra;
  * @author paulo
  * @since 2012-09-09
  */
-public class MecMercadoriaCompraJpaController extends PrincipalController<MecMercadoriaCompra> {
+public class MercadoriaCompraController extends PrincipalController<MecMercadoriaCompra> {
 
-    public MecMercadoriaCompraJpaController(MecMercadoriaCompra t) {
+    public MercadoriaCompraController(MecMercadoriaCompra t) {
         super(t);
     }
 }

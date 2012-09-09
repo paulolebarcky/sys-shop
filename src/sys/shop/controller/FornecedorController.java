@@ -8,9 +8,9 @@ import sys.shop.entity.ForFornecedor;
  * @author paulo
  * @since 2012-09-09
  */
-public class ForFornecedorJpaController extends PrincipalController<ForFornecedor> {
+public class FornecedorController extends PrincipalController<ForFornecedor> {
 
-    public ForFornecedorJpaController(ForFornecedor t) {
+    public FornecedorController(ForFornecedor t) {
         super(t);
     }
 }

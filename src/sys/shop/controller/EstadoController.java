@@ -12,9 +12,9 @@ import sys.shop.entity.EstEstado;
  * @author paulo
  * @since 2012-09-09
  */
-public class EstEstadoJpaController extends PrincipalController<EstEstado> {
+public class EstadoController extends PrincipalController<EstEstado> {
 
-    public EstEstadoJpaController(EstEstado t) {
+    public EstadoController(EstEstado t) {
         super(t);
     }
 }

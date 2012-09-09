@@ -8,9 +8,9 @@ import sys.shop.entity.VedVendedor;
  * @author paulo
  * @since 2012-09-09
  */
-public class VedVendedorJpaController extends PrincipalController<VedVendedor> {
+public class VendedorController extends PrincipalController<VedVendedor> {
 
-    public VedVendedorJpaController(VedVendedor t) {
+    public VendedorController(VedVendedor t) {
         super(t);
     }
 }
