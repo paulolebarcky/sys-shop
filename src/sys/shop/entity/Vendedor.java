@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -18,8 +14,10 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade relacionada ao vendedor.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "ved_vendedor")
@@ -37,7 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "VedVendedor.findByVedDtnascimento", query = "SELECT v FROM VedVendedor v WHERE v.vedDtnascimento = :vedDtnascimento"),
     @NamedQuery(name = "VedVendedor.findByVedDtcadastro", query = "SELECT v FROM VedVendedor v WHERE v.vedDtcadastro = :vedDtcadastro"),
     @NamedQuery(name = "VedVendedor.findByVedStatus", query = "SELECT v FROM VedVendedor v WHERE v.vedStatus = :vedStatus")})
-public class VedVendedor implements Serializable {
+public class Vendedor implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -68,14 +66,14 @@ public class VedVendedor implements Serializable {
     @Column(name = "ved_status")
     private Character vedStatus;
 
-    public VedVendedor() {
+    public Vendedor() {
     }
 
-    public VedVendedor(Integer vedId) {
+    public Vendedor(Integer vedId) {
         this.vedId = vedId;
     }
 
-    public VedVendedor(Integer vedId, int cidId, int lojId) {
+    public Vendedor(Integer vedId, int cidId, int lojId) {
         this.vedId = vedId;
         this.cidId = cidId;
         this.lojId = lojId;
@@ -179,10 +177,10 @@ public class VedVendedor implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof VedVendedor)) {
+        if (!(object instanceof Vendedor)) {
             return false;
         }
-        VedVendedor other = (VedVendedor) object;
+        Vendedor other = (Vendedor) object;
         if ((this.vedId == null && other.vedId != null) || (this.vedId != null && !this.vedId.equals(other.vedId))) {
             return false;
         }

@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import sys.shop.controller.EstadoController;
 import sys.shop.controller.exceptions.PreexistingEntityException;
-import sys.shop.entity.EstEstado;
+import sys.shop.entity.Estado;
 
 /**
  *
@@ -28,7 +28,7 @@ public class SysShop {
     public static void create() {
         System.out.println("Create entering Tests");
 
-        EstEstado estEstado = new EstEstado();
+        Estado estEstado = new Estado();
         estEstado.setEstId(3);
         estEstado.setEstNome("Rio de Janeiro");
         estEstado.setEstSigla("RJ");
@@ -48,7 +48,7 @@ public class SysShop {
     public static void remove() {
         System.out.println("Remove entering Tests");
 
-        EstEstado estEstado = new EstEstado();
+        Estado estEstado = new Estado();
         estEstado.setEstId(3);
         estEstado.setEstNome("Rio de Janeiro");
         estEstado.setEstSigla("RJ");
@@ -66,7 +66,7 @@ public class SysShop {
     public static void findAll() {
         System.out.println("Remove entering Tests");
 
-        EstEstado estEstado = new EstEstado();
+        Estado estEstado = new Estado();
         estEstado.setEstId(3);
         estEstado.setEstNome("Rio de Janeiro");
         estEstado.setEstSigla("RJ");
@@ -74,9 +74,9 @@ public class SysShop {
         EstadoController estado = new EstadoController(estEstado);
 
         try {
-            List<EstEstado> listEstados = estado.findEntities();
+            List<Estado> listEstados = estado.findEntities();
             
-            for (EstEstado estEstado1 : listEstados) {
+            for (Estado estEstado1 : listEstados) {
                 System.out.println(estEstado1.toString());
             }
             

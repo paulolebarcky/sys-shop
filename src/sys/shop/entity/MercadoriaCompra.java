@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -15,8 +11,10 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade relacionada a compra de mercadoria.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "mec_mercadoria_compra")
@@ -27,37 +25,37 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "MecMercadoriaCompra.findByComId", query = "SELECT m FROM MecMercadoriaCompra m WHERE m.mecMercadoriaCompraPK.comId = :comId"),
     @NamedQuery(name = "MecMercadoriaCompra.findByMerId", query = "SELECT m FROM MecMercadoriaCompra m WHERE m.merId = :merId"),
     @NamedQuery(name = "MecMercadoriaCompra.findByMecStatus", query = "SELECT m FROM MecMercadoriaCompra m WHERE m.mecStatus = :mecStatus")})
-public class MecMercadoriaCompra implements Serializable {
+public class MercadoriaCompra implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
-    protected MecMercadoriaCompraPK mecMercadoriaCompraPK;
+    protected MercadoriaCompraPK mecMercadoriaCompraPK;
     @Basic(optional = false)
     @Column(name = "mer_id")
     private int merId;
     @Column(name = "mec_status")
     private Character mecStatus;
 
-    public MecMercadoriaCompra() {
+    public MercadoriaCompra() {
     }
 
-    public MecMercadoriaCompra(MecMercadoriaCompraPK mecMercadoriaCompraPK) {
+    public MercadoriaCompra(MercadoriaCompraPK mecMercadoriaCompraPK) {
         this.mecMercadoriaCompraPK = mecMercadoriaCompraPK;
     }
 
-    public MecMercadoriaCompra(MecMercadoriaCompraPK mecMercadoriaCompraPK, int merId) {
+    public MercadoriaCompra(MercadoriaCompraPK mecMercadoriaCompraPK, int merId) {
         this.mecMercadoriaCompraPK = mecMercadoriaCompraPK;
         this.merId = merId;
     }
 
-    public MecMercadoriaCompra(int mecId, int comId) {
-        this.mecMercadoriaCompraPK = new MecMercadoriaCompraPK(mecId, comId);
+    public MercadoriaCompra(int mecId, int comId) {
+        this.mecMercadoriaCompraPK = new MercadoriaCompraPK(mecId, comId);
     }
 
-    public MecMercadoriaCompraPK getMecMercadoriaCompraPK() {
+    public MercadoriaCompraPK getMecMercadoriaCompraPK() {
         return mecMercadoriaCompraPK;
     }
 
-    public void setMecMercadoriaCompraPK(MecMercadoriaCompraPK mecMercadoriaCompraPK) {
+    public void setMecMercadoriaCompraPK(MercadoriaCompraPK mecMercadoriaCompraPK) {
         this.mecMercadoriaCompraPK = mecMercadoriaCompraPK;
     }
 
@@ -87,10 +85,10 @@ public class MecMercadoriaCompra implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof MecMercadoriaCompra)) {
+        if (!(object instanceof MercadoriaCompra)) {
             return false;
         }
-        MecMercadoriaCompra other = (MecMercadoriaCompra) object;
+        MercadoriaCompra other = (MercadoriaCompra) object;
         if ((this.mecMercadoriaCompraPK == null && other.mecMercadoriaCompraPK != null) || (this.mecMercadoriaCompraPK != null && !this.mecMercadoriaCompraPK.equals(other.mecMercadoriaCompraPK))) {
             return false;
         }

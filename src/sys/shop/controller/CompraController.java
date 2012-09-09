@@ -1,6 +1,6 @@
 package sys.shop.controller;
 
-import sys.shop.entity.ComCompra;
+import sys.shop.entity.Compra;
 
 /**
  * Trata operações relacionadas as compras.
@@ -8,9 +8,9 @@ import sys.shop.entity.ComCompra;
  * @author paulo
  * @since 2012-09-09
  */
-public class CompraController extends PrincipalController<ComCompra> {
+public class CompraController extends PrincipalController<Compra> {
 
-    public CompraController(ComCompra t) {
+    public CompraController(Compra t) {
         super(t);
     }
 }

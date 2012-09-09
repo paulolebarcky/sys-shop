@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -18,8 +14,10 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade relacionada ao tipo de mercadoria.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "tim_tipo_mercadoria")
@@ -32,7 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TimTipoMercadoria.findByTimDtcadastro", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timDtcadastro = :timDtcadastro"),
     @NamedQuery(name = "TimTipoMercadoria.findByTimDescricao", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timDescricao = :timDescricao"),
     @NamedQuery(name = "TimTipoMercadoria.findByTimStatus", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timStatus = :timStatus")})
-public class TimTipoMercadoria implements Serializable {
+public class TipoMercadoria implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -50,10 +48,10 @@ public class TimTipoMercadoria implements Serializable {
     @Column(name = "tim_status")
     private Character timStatus;
 
-    public TimTipoMercadoria() {
+    public TipoMercadoria() {
     }
 
-    public TimTipoMercadoria(Integer timId) {
+    public TipoMercadoria(Integer timId) {
         this.timId = timId;
     }
 
@@ -115,10 +113,10 @@ public class TimTipoMercadoria implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TimTipoMercadoria)) {
+        if (!(object instanceof TipoMercadoria)) {
             return false;
         }
-        TimTipoMercadoria other = (TimTipoMercadoria) object;
+        TipoMercadoria other = (TipoMercadoria) object;
         if ((this.timId == null && other.timId != null) || (this.timId != null && !this.timId.equals(other.timId))) {
             return false;
         }

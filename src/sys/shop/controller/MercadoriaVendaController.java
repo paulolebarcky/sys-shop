@@ -1,6 +1,6 @@
 package sys.shop.controller;
 
-import sys.shop.entity.MevMercadoriaVenda;
+import sys.shop.entity.MercadoriaVenda;
 
 /**
  * Trata operações relacionadas as vendas de mercadorias.
@@ -8,9 +8,9 @@ import sys.shop.entity.MevMercadoriaVenda;
  * @author paulo
  * @since 2012-09-09
  */
-public class MercadoriaVendaController extends PrincipalController<MevMercadoriaVenda> {
+public class MercadoriaVendaController extends PrincipalController<MercadoriaVenda> {
 
-    public MercadoriaVendaController(MevMercadoriaVenda t) {
+    public MercadoriaVendaController(MercadoriaVenda t) {
         super(t);
     }
 }

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -17,8 +13,10 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade relacionada ao pagamento de venda.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "pgv_pagamento_venda")
@@ -30,10 +28,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "PgvPagamentoVenda.findByPgvData", query = "SELECT p FROM PgvPagamentoVenda p WHERE p.pgvData = :pgvData"),
     @NamedQuery(name = "PgvPagamentoVenda.findByPgvValor", query = "SELECT p FROM PgvPagamentoVenda p WHERE p.pgvValor = :pgvValor"),
     @NamedQuery(name = "PgvPagamentoVenda.findByPgvStatus", query = "SELECT p FROM PgvPagamentoVenda p WHERE p.pgvStatus = :pgvStatus")})
-public class PgvPagamentoVenda implements Serializable {
+public class PagamentoVenda implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
-    protected PgvPagamentoVendaPK pgvPagamentoVendaPK;
+    protected PagamentoVendaPK pgvPagamentoVendaPK;
     @Column(name = "pgv_data")
     @Temporal(TemporalType.DATE)
     private Date pgvData;
@@ -43,22 +41,22 @@ public class PgvPagamentoVenda implements Serializable {
     @Column(name = "pgv_status")
     private Character pgvStatus;
 
-    public PgvPagamentoVenda() {
+    public PagamentoVenda() {
     }
 
-    public PgvPagamentoVenda(PgvPagamentoVendaPK pgvPagamentoVendaPK) {
+    public PagamentoVenda(PagamentoVendaPK pgvPagamentoVendaPK) {
         this.pgvPagamentoVendaPK = pgvPagamentoVendaPK;
     }
 
-    public PgvPagamentoVenda(int pgvId, int venId) {
-        this.pgvPagamentoVendaPK = new PgvPagamentoVendaPK(pgvId, venId);
+    public PagamentoVenda(int pgvId, int venId) {
+        this.pgvPagamentoVendaPK = new PagamentoVendaPK(pgvId, venId);
     }
 
-    public PgvPagamentoVendaPK getPgvPagamentoVendaPK() {
+    public PagamentoVendaPK getPgvPagamentoVendaPK() {
         return pgvPagamentoVendaPK;
     }
 
-    public void setPgvPagamentoVendaPK(PgvPagamentoVendaPK pgvPagamentoVendaPK) {
+    public void setPgvPagamentoVendaPK(PagamentoVendaPK pgvPagamentoVendaPK) {
         this.pgvPagamentoVendaPK = pgvPagamentoVendaPK;
     }
 
@@ -96,10 +94,10 @@ public class PgvPagamentoVenda implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PgvPagamentoVenda)) {
+        if (!(object instanceof PagamentoVenda)) {
             return false;
         }
-        PgvPagamentoVenda other = (PgvPagamentoVenda) object;
+        PagamentoVenda other = (PagamentoVenda) object;
         if ((this.pgvPagamentoVendaPK == null && other.pgvPagamentoVendaPK != null) || (this.pgvPagamentoVendaPK != null && !this.pgvPagamentoVendaPK.equals(other.pgvPagamentoVendaPK))) {
             return false;
         }

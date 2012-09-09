@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -18,8 +14,10 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade relacionada ao fornecedor.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "for_fornecedor")
@@ -37,7 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ForFornecedor.findByForDescricao", query = "SELECT f FROM ForFornecedor f WHERE f.forDescricao = :forDescricao"),
     @NamedQuery(name = "ForFornecedor.findByForDtcadastro", query = "SELECT f FROM ForFornecedor f WHERE f.forDtcadastro = :forDtcadastro"),
     @NamedQuery(name = "ForFornecedor.findByForStatus", query = "SELECT f FROM ForFornecedor f WHERE f.forStatus = :forStatus")})
-public class ForFornecedor implements Serializable {
+public class Fornecedor implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -66,14 +64,14 @@ public class ForFornecedor implements Serializable {
     @Column(name = "for_status")
     private Character forStatus;
 
-    public ForFornecedor() {
+    public Fornecedor() {
     }
 
-    public ForFornecedor(Integer forId) {
+    public Fornecedor(Integer forId) {
         this.forId = forId;
     }
 
-    public ForFornecedor(Integer forId, int cidId) {
+    public Fornecedor(Integer forId, int cidId) {
         this.forId = forId;
         this.cidId = cidId;
     }
@@ -176,10 +174,10 @@ public class ForFornecedor implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ForFornecedor)) {
+        if (!(object instanceof Fornecedor)) {
             return false;
         }
-        ForFornecedor other = (ForFornecedor) object;
+        Fornecedor other = (Fornecedor) object;
         if ((this.forId == null && other.forId != null) || (this.forId != null && !this.forId.equals(other.forId))) {
             return false;
         }

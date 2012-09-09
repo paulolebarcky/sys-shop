@@ -1,6 +1,6 @@
 package sys.shop.controller;
 
-import sys.shop.entity.VenVenda;
+import sys.shop.entity.Venda;
 
 /**
  * Trata operações relacionadas as vendas
@@ -8,9 +8,9 @@ import sys.shop.entity.VenVenda;
  * @author paulo
  * @since 20120909
  */
-public class VendaController extends PrincipalController<VenVenda> {
+public class VendaController extends PrincipalController<Venda> {
 
-    public VendaController(VenVenda t) {
+    public VendaController(Venda t) {
         super(t);
     }
 }

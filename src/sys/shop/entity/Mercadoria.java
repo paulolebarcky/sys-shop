@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -18,8 +14,10 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade relacionada a mercadoria.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "mer_mercadoria")
@@ -32,7 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "MerMercadoria.findByMerDtcadastro", query = "SELECT m FROM MerMercadoria m WHERE m.merDtcadastro = :merDtcadastro"),
     @NamedQuery(name = "MerMercadoria.findByMerValor", query = "SELECT m FROM MerMercadoria m WHERE m.merValor = :merValor"),
     @NamedQuery(name = "MerMercadoria.findByMerQuantidade", query = "SELECT m FROM MerMercadoria m WHERE m.merQuantidade = :merQuantidade")})
-public class MerMercadoria implements Serializable {
+public class Mercadoria implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -52,14 +50,14 @@ public class MerMercadoria implements Serializable {
     @Column(name = "mer_quantidade")
     private Integer merQuantidade;
 
-    public MerMercadoria() {
+    public Mercadoria() {
     }
 
-    public MerMercadoria(Integer merId) {
+    public Mercadoria(Integer merId) {
         this.merId = merId;
     }
 
-    public MerMercadoria(Integer merId, int timId) {
+    public Mercadoria(Integer merId, int timId) {
         this.merId = merId;
         this.timId = timId;
     }
@@ -122,10 +120,10 @@ public class MerMercadoria implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof MerMercadoria)) {
+        if (!(object instanceof Mercadoria)) {
             return false;
         }
-        MerMercadoria other = (MerMercadoria) object;
+        Mercadoria other = (Mercadoria) object;
         if ((this.merId == null && other.merId != null) || (this.merId != null && !this.merId.equals(other.merId))) {
             return false;
         }

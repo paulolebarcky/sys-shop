@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -18,8 +14,10 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade relacionada a venda.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "ven_venda")
@@ -35,7 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "VenVenda.findByVenStatus", query = "SELECT v FROM VenVenda v WHERE v.venStatus = :venStatus"),
     @NamedQuery(name = "VenVenda.findByVenData", query = "SELECT v FROM VenVenda v WHERE v.venData = :venData"),
     @NamedQuery(name = "VenVenda.findByVenDescricao", query = "SELECT v FROM VenVenda v WHERE v.venDescricao = :venDescricao")})
-public class VenVenda implements Serializable {
+public class Venda implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -64,14 +62,14 @@ public class VenVenda implements Serializable {
     @Column(name = "ven_descricao")
     private String venDescricao;
 
-    public VenVenda() {
+    public Venda() {
     }
 
-    public VenVenda(Integer venId) {
+    public Venda(Integer venId) {
         this.venId = venId;
     }
 
-    public VenVenda(Integer venId, int cliId, int vedId, int tivId, int fopId) {
+    public Venda(Integer venId, int cliId, int vedId, int tivId, int fopId) {
         this.venId = venId;
         this.cliId = cliId;
         this.vedId = vedId;
@@ -161,10 +159,10 @@ public class VenVenda implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof VenVenda)) {
+        if (!(object instanceof Venda)) {
             return false;
         }
-        VenVenda other = (VenVenda) object;
+        Venda other = (Venda) object;
         if ((this.venId == null && other.venId != null) || (this.venId != null && !this.venId.equals(other.venId))) {
             return false;
         }

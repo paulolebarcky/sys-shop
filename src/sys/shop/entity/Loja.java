@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -18,8 +14,10 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade relacionada a loja.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "loj_loja")
@@ -35,7 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "LojLoja.findByLojCelular", query = "SELECT l FROM LojLoja l WHERE l.lojCelular = :lojCelular"),
     @NamedQuery(name = "LojLoja.findByLojDtcadastro", query = "SELECT l FROM LojLoja l WHERE l.lojDtcadastro = :lojDtcadastro"),
     @NamedQuery(name = "LojLoja.findByLojDescricao", query = "SELECT l FROM LojLoja l WHERE l.lojDescricao = :lojDescricao")})
-public class LojLoja implements Serializable {
+public class Loja implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -59,10 +57,10 @@ public class LojLoja implements Serializable {
     @Column(name = "loj_descricao")
     private String lojDescricao;
 
-    public LojLoja() {
+    public Loja() {
     }
 
-    public LojLoja(Integer lojId) {
+    public Loja(Integer lojId) {
         this.lojId = lojId;
     }
 
@@ -148,10 +146,10 @@ public class LojLoja implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof LojLoja)) {
+        if (!(object instanceof Loja)) {
             return false;
         }
-        LojLoja other = (LojLoja) object;
+        Loja other = (Loja) object;
         if ((this.lojId == null && other.lojId != null) || (this.lojId != null && !this.lojId.equals(other.lojId))) {
             return false;
         }

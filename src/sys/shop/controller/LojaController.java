@@ -1,6 +1,6 @@
 package sys.shop.controller;
 
-import sys.shop.entity.LojLoja;
+import sys.shop.entity.Loja;
 
 /**
  * Trata operações relacionadas as lojas.
@@ -8,9 +8,9 @@ import sys.shop.entity.LojLoja;
  * @author paulo
  * @since 2012-09-09
  */
-public class LojaController extends PrincipalController<LojLoja> {
+public class LojaController extends PrincipalController<Loja> {
 
-    public LojaController(LojLoja t) {
+    public LojaController(Loja t) {
         super(t);
     }
 }

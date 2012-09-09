@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -10,11 +6,13 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /**
- *
+ * Representa a entidade relacionada a chave compra de mercadoria.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Embeddable
-public class MecMercadoriaCompraPK implements Serializable {
+public class MercadoriaCompraPK implements Serializable {
     @Basic(optional = false)
     @Column(name = "mec_id")
     private int mecId;
@@ -22,10 +20,10 @@ public class MecMercadoriaCompraPK implements Serializable {
     @Column(name = "com_id")
     private int comId;
 
-    public MecMercadoriaCompraPK() {
+    public MercadoriaCompraPK() {
     }
 
-    public MecMercadoriaCompraPK(int mecId, int comId) {
+    public MercadoriaCompraPK(int mecId, int comId) {
         this.mecId = mecId;
         this.comId = comId;
     }
@@ -57,10 +55,10 @@ public class MecMercadoriaCompraPK implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof MecMercadoriaCompraPK)) {
+        if (!(object instanceof MercadoriaCompraPK)) {
             return false;
         }
-        MecMercadoriaCompraPK other = (MecMercadoriaCompraPK) object;
+        MercadoriaCompraPK other = (MercadoriaCompraPK) object;
         if (this.mecId != other.mecId) {
             return false;
         }

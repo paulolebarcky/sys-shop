@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -18,8 +14,10 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade cliente.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "cli_cliente")
@@ -40,7 +38,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "CliCliente.findByCliDtcadastro", query = "SELECT c FROM CliCliente c WHERE c.cliDtcadastro = :cliDtcadastro"),
     @NamedQuery(name = "CliCliente.findByCliStatus", query = "SELECT c FROM CliCliente c WHERE c.cliStatus = :cliStatus"),
     @NamedQuery(name = "CliCliente.findByCliDtnascimento", query = "SELECT c FROM CliCliente c WHERE c.cliDtnascimento = :cliDtnascimento")})
-public class CliCliente implements Serializable {
+public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -77,14 +75,14 @@ public class CliCliente implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date cliDtnascimento;
 
-    public CliCliente() {
+    public Cliente() {
     }
 
-    public CliCliente(Integer cliId) {
+    public Cliente(Integer cliId) {
         this.cliId = cliId;
     }
 
-    public CliCliente(Integer cliId, int cidId, int lojId) {
+    public Cliente(Integer cliId, int cidId, int lojId) {
         this.cliId = cliId;
         this.cidId = cidId;
         this.lojId = lojId;
@@ -212,10 +210,10 @@ public class CliCliente implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CliCliente)) {
+        if (!(object instanceof Cliente)) {
             return false;
         }
-        CliCliente other = (CliCliente) object;
+        Cliente other = (Cliente) object;
         if ((this.cliId == null && other.cliId != null) || (this.cliId != null && !this.cliId.equals(other.cliId))) {
             return false;
         }

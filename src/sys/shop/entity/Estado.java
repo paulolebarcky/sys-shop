@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -15,8 +11,10 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade estado.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "est_estado")
@@ -26,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "EstEstado.findByEstId", query = "SELECT e FROM EstEstado e WHERE e.estId = :estId"),
     @NamedQuery(name = "EstEstado.findByEstNome", query = "SELECT e FROM EstEstado e WHERE e.estNome = :estNome"),
     @NamedQuery(name = "EstEstado.findByEstSigla", query = "SELECT e FROM EstEstado e WHERE e.estSigla = :estSigla")})
-public class EstEstado implements Serializable {
+public class Estado implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -37,10 +35,10 @@ public class EstEstado implements Serializable {
     @Column(name = "est_sigla")
     private String estSigla;
 
-    public EstEstado() {
+    public Estado() {
     }
 
-    public EstEstado(Integer estId) {
+    public Estado(Integer estId) {
         this.estId = estId;
     }
 
@@ -78,10 +76,10 @@ public class EstEstado implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof EstEstado)) {
+        if (!(object instanceof Estado)) {
             return false;
         }
-        EstEstado other = (EstEstado) object;
+        Estado other = (Estado) object;
         if ((this.estId == null && other.estId != null) || (this.estId != null && !this.estId.equals(other.estId))) {
             return false;
         }

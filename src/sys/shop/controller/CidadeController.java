@@ -1,6 +1,6 @@
 package sys.shop.controller;
 
-import sys.shop.entity.CidCidade;
+import sys.shop.entity.Cidade;
 
 /**
  * Trata operações relacionadas as cidades.
@@ -8,9 +8,9 @@ import sys.shop.entity.CidCidade;
  * @author paulo
  * @since 2012-09-09
  */
-public class CidadeController extends PrincipalController<CidCidade> {
+public class CidadeController extends PrincipalController<Cidade> {
 
-    public CidadeController(CidCidade t) {
+    public CidadeController(Cidade t) {
         super(t);
     }
 }

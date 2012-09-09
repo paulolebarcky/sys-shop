@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -15,8 +11,10 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade cidades.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "cid_cidade")
@@ -26,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "CidCidade.findByCidId", query = "SELECT c FROM CidCidade c WHERE c.cidId = :cidId"),
     @NamedQuery(name = "CidCidade.findByEstId", query = "SELECT c FROM CidCidade c WHERE c.estId = :estId"),
     @NamedQuery(name = "CidCidade.findByCidNome", query = "SELECT c FROM CidCidade c WHERE c.cidNome = :cidNome")})
-public class CidCidade implements Serializable {
+public class Cidade implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -38,14 +36,14 @@ public class CidCidade implements Serializable {
     @Column(name = "cid_nome")
     private String cidNome;
 
-    public CidCidade() {
+    public Cidade() {
     }
 
-    public CidCidade(Integer cidId) {
+    public Cidade(Integer cidId) {
         this.cidId = cidId;
     }
 
-    public CidCidade(Integer cidId, int estId) {
+    public Cidade(Integer cidId, int estId) {
         this.cidId = cidId;
         this.estId = estId;
     }
@@ -84,10 +82,10 @@ public class CidCidade implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CidCidade)) {
+        if (!(object instanceof Cidade)) {
             return false;
         }
-        CidCidade other = (CidCidade) object;
+        Cidade other = (Cidade) object;
         if ((this.cidId == null && other.cidId != null) || (this.cidId != null && !this.cidId.equals(other.cidId))) {
             return false;
         }

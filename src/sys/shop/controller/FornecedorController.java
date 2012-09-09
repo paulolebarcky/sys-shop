@@ -1,6 +1,6 @@
 package sys.shop.controller;
 
-import sys.shop.entity.ForFornecedor;
+import sys.shop.entity.Fornecedor;
 
 /**
  * Trata operações relacionadas aos fornecedores.
@@ -8,9 +8,9 @@ import sys.shop.entity.ForFornecedor;
  * @author paulo
  * @since 2012-09-09
  */
-public class FornecedorController extends PrincipalController<ForFornecedor> {
+public class FornecedorController extends PrincipalController<Fornecedor> {
 
-    public FornecedorController(ForFornecedor t) {
+    public FornecedorController(Fornecedor t) {
         super(t);
     }
 }

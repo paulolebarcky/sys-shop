@@ -1,6 +1,6 @@
 package sys.shop.controller;
 
-import sys.shop.entity.FopFormaPagamento;
+import sys.shop.entity.FormaPagamento;
 
 /**
  * Trata operações relacionadas as formas de pagamento.
@@ -8,9 +8,9 @@ import sys.shop.entity.FopFormaPagamento;
  * @author paulo
  * @since 2012-09-09
  */
-public class FormaPagamentoController extends PrincipalController<FopFormaPagamento> {
+public class FormaPagamentoController extends PrincipalController<FormaPagamento> {
 
-    public FormaPagamentoController(FopFormaPagamento t) {
+    public FormaPagamentoController(FormaPagamento t) {
         super(t);
     }
     

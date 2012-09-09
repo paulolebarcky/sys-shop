@@ -1,6 +1,6 @@
 package sys.shop.controller;
 
-import sys.shop.entity.PgvPagamentoVenda;
+import sys.shop.entity.PagamentoVenda;
 
 /**
  * Trata operações relacionadas aos pagamentos de vendas.
@@ -8,9 +8,9 @@ import sys.shop.entity.PgvPagamentoVenda;
  * @author paulo
  * @since 2012-09-09
  */
-public class PagamentoVendaController extends PrincipalController<PgvPagamentoVenda> {
+public class PagamentoVendaController extends PrincipalController<PagamentoVenda> {
 
-    public PagamentoVendaController(PgvPagamentoVenda t) {
+    public PagamentoVendaController(PagamentoVenda t) {
         super(t);
     }
 }

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -18,8 +14,10 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade relacionada ao tipo de venda.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "tiv_tipo_venda")
@@ -31,7 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "TivTipoVenda.findByTivDtcadastro", query = "SELECT t FROM TivTipoVenda t WHERE t.tivDtcadastro = :tivDtcadastro"),
     @NamedQuery(name = "TivTipoVenda.findByTivStatus", query = "SELECT t FROM TivTipoVenda t WHERE t.tivStatus = :tivStatus"),
     @NamedQuery(name = "TivTipoVenda.findByTivDescricao", query = "SELECT t FROM TivTipoVenda t WHERE t.tivDescricao = :tivDescricao")})
-public class TivTipoVenda implements Serializable {
+public class TipoVenda implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -47,10 +45,10 @@ public class TivTipoVenda implements Serializable {
     @Column(name = "tiv_descricao")
     private String tivDescricao;
 
-    public TivTipoVenda() {
+    public TipoVenda() {
     }
 
-    public TivTipoVenda(Integer tivId) {
+    public TipoVenda(Integer tivId) {
         this.tivId = tivId;
     }
 
@@ -104,10 +102,10 @@ public class TivTipoVenda implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TivTipoVenda)) {
+        if (!(object instanceof TipoVenda)) {
             return false;
         }
-        TivTipoVenda other = (TivTipoVenda) object;
+        TipoVenda other = (TipoVenda) object;
         if ((this.tivId == null && other.tivId != null) || (this.tivId != null && !this.tivId.equals(other.tivId))) {
             return false;
         }

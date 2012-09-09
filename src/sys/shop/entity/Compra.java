@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -18,8 +14,10 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade compra.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "com_compra")
@@ -33,7 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "ComCompra.findByComValor", query = "SELECT c FROM ComCompra c WHERE c.comValor = :comValor"),
     @NamedQuery(name = "ComCompra.findByComData", query = "SELECT c FROM ComCompra c WHERE c.comData = :comData"),
     @NamedQuery(name = "ComCompra.findByComDescricao", query = "SELECT c FROM ComCompra c WHERE c.comDescricao = :comDescricao")})
-public class ComCompra implements Serializable {
+public class Compra implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -57,14 +55,14 @@ public class ComCompra implements Serializable {
     @Column(name = "com_descricao")
     private String comDescricao;
 
-    public ComCompra() {
+    public Compra() {
     }
 
-    public ComCompra(Integer comId) {
+    public Compra(Integer comId) {
         this.comId = comId;
     }
 
-    public ComCompra(Integer comId, int forId, int tivId, int fopId) {
+    public Compra(Integer comId, int forId, int tivId, int fopId) {
         this.comId = comId;
         this.forId = forId;
         this.tivId = tivId;
@@ -137,10 +135,10 @@ public class ComCompra implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ComCompra)) {
+        if (!(object instanceof Compra)) {
             return false;
         }
-        ComCompra other = (ComCompra) object;
+        Compra other = (Compra) object;
         if ((this.comId == null && other.comId != null) || (this.comId != null && !this.comId.equals(other.comId))) {
             return false;
         }

@@ -1,6 +1,6 @@
 package sys.shop.controller;
 
-import sys.shop.entity.TivTipoVenda;
+import sys.shop.entity.TipoVenda;
 
 /**
  * Trata operações relacionadas aos tipos de venda.
@@ -8,9 +8,9 @@ import sys.shop.entity.TivTipoVenda;
  * @author paulo
  * @since 2012-09-09
  */
-public class TipoVendaController extends PrincipalController<TivTipoVenda> {
+public class TipoVendaController extends PrincipalController<TipoVenda> {
 
-    public TipoVendaController(TivTipoVenda t) {
+    public TipoVendaController(TipoVenda t) {
         super(t);
     }
 }

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.entity;
 
 import java.io.Serializable;
@@ -14,8 +10,10 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Representa a entidade relacionada a venda de mercadoria.
+ * 
  * @author paulo
+ * @since 2012-09-09
  */
 @Entity
 @Table(name = "mev_mercadoria_venda")
@@ -27,32 +25,32 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "MevMercadoriaVenda.findByMerId", query = "SELECT m FROM MevMercadoriaVenda m WHERE m.mevMercadoriaVendaPK.merId = :merId"),
     @NamedQuery(name = "MevMercadoriaVenda.findByMevValor", query = "SELECT m FROM MevMercadoriaVenda m WHERE m.mevValor = :mevValor"),
     @NamedQuery(name = "MevMercadoriaVenda.findByMevStatus", query = "SELECT m FROM MevMercadoriaVenda m WHERE m.mevStatus = :mevStatus")})
-public class MevMercadoriaVenda implements Serializable {
+public class MercadoriaVenda implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
-    protected MevMercadoriaVendaPK mevMercadoriaVendaPK;
+    protected MercadoriaVendaPK mevMercadoriaVendaPK;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "mev_valor")
     private Double mevValor;
     @Column(name = "mev_status")
     private Character mevStatus;
 
-    public MevMercadoriaVenda() {
+    public MercadoriaVenda() {
     }
 
-    public MevMercadoriaVenda(MevMercadoriaVendaPK mevMercadoriaVendaPK) {
+    public MercadoriaVenda(MercadoriaVendaPK mevMercadoriaVendaPK) {
         this.mevMercadoriaVendaPK = mevMercadoriaVendaPK;
     }
 
-    public MevMercadoriaVenda(int mevId, int venId, int merId) {
-        this.mevMercadoriaVendaPK = new MevMercadoriaVendaPK(mevId, venId, merId);
+    public MercadoriaVenda(int mevId, int venId, int merId) {
+        this.mevMercadoriaVendaPK = new MercadoriaVendaPK(mevId, venId, merId);
     }
 
-    public MevMercadoriaVendaPK getMevMercadoriaVendaPK() {
+    public MercadoriaVendaPK getMevMercadoriaVendaPK() {
         return mevMercadoriaVendaPK;
     }
 
-    public void setMevMercadoriaVendaPK(MevMercadoriaVendaPK mevMercadoriaVendaPK) {
+    public void setMevMercadoriaVendaPK(MercadoriaVendaPK mevMercadoriaVendaPK) {
         this.mevMercadoriaVendaPK = mevMercadoriaVendaPK;
     }
 
@@ -82,10 +80,10 @@ public class MevMercadoriaVenda implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof MevMercadoriaVenda)) {
+        if (!(object instanceof MercadoriaVenda)) {
             return false;
         }
-        MevMercadoriaVenda other = (MevMercadoriaVenda) object;
+        MercadoriaVenda other = (MercadoriaVenda) object;
         if ((this.mevMercadoriaVendaPK == null && other.mevMercadoriaVendaPK != null) || (this.mevMercadoriaVendaPK != null && !this.mevMercadoriaVendaPK.equals(other.mevMercadoriaVendaPK))) {
             return false;
         }
