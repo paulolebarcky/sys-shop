@@ -70,7 +70,7 @@ public class PagamentoVendaPK implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.PgvPagamentoVendaPK[ pgvId=" + pgvId + ", venId=" + venId + " ]";
+        return "sys.shop.entity.PagamentoVendaPK[ pgvId=" + pgvId + ", venId=" + venId + " ]";
     }
     
 }

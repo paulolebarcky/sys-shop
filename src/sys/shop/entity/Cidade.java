@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Representa a entidade cidades.
+ * Representa a entidade relacionada a cidade.
  * 
  * @author paulo
  * @since 2012-09-09
@@ -20,10 +20,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "cid_cidade")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "CidCidade.findAll", query = "SELECT c FROM CidCidade c"),
-    @NamedQuery(name = "CidCidade.findByCidId", query = "SELECT c FROM CidCidade c WHERE c.cidId = :cidId"),
-    @NamedQuery(name = "CidCidade.findByEstId", query = "SELECT c FROM CidCidade c WHERE c.estId = :estId"),
-    @NamedQuery(name = "CidCidade.findByCidNome", query = "SELECT c FROM CidCidade c WHERE c.cidNome = :cidNome")})
+    @NamedQuery(name = "Cidade.findAll", query = "SELECT c FROM Cidade c"),
+    @NamedQuery(name = "Cidade.findByCidId", query = "SELECT c FROM Cidade c WHERE c.cidId = :cidId"),
+    @NamedQuery(name = "Cidade.findByEstId", query = "SELECT c FROM Cidade c WHERE c.estId = :estId"),
+    @NamedQuery(name = "Cidade.findByCidNome", query = "SELECT c FROM Cidade c WHERE c.cidNome = :cidNome")})
 public class Cidade implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -94,7 +94,7 @@ public class Cidade implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.CidCidade[ cidId=" + cidId + " ]";
+        return "sys.shop.entity.Cidade[ cidId=" + cidId + " ]";
     }
     
 }

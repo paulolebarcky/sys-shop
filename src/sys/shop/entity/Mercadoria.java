@@ -23,13 +23,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "mer_mercadoria")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "MerMercadoria.findAll", query = "SELECT m FROM MerMercadoria m"),
-    @NamedQuery(name = "MerMercadoria.findByMerId", query = "SELECT m FROM MerMercadoria m WHERE m.merId = :merId"),
-    @NamedQuery(name = "MerMercadoria.findByTimId", query = "SELECT m FROM MerMercadoria m WHERE m.timId = :timId"),
-    @NamedQuery(name = "MerMercadoria.findByMerNome", query = "SELECT m FROM MerMercadoria m WHERE m.merNome = :merNome"),
-    @NamedQuery(name = "MerMercadoria.findByMerDtcadastro", query = "SELECT m FROM MerMercadoria m WHERE m.merDtcadastro = :merDtcadastro"),
-    @NamedQuery(name = "MerMercadoria.findByMerValor", query = "SELECT m FROM MerMercadoria m WHERE m.merValor = :merValor"),
-    @NamedQuery(name = "MerMercadoria.findByMerQuantidade", query = "SELECT m FROM MerMercadoria m WHERE m.merQuantidade = :merQuantidade")})
+    @NamedQuery(name = "Mercadoria.findAll", query = "SELECT m FROM Mercadoria m"),
+    @NamedQuery(name = "Mercadoria.findByMerId", query = "SELECT m FROM Mercadoria m WHERE m.merId = :merId"),
+    @NamedQuery(name = "Mercadoria.findByTimId", query = "SELECT m FROM Mercadoria m WHERE m.timId = :timId"),
+    @NamedQuery(name = "Mercadoria.findByMerNome", query = "SELECT m FROM Mercadoria m WHERE m.merNome = :merNome"),
+    @NamedQuery(name = "Mercadoria.findByMerDtcadastro", query = "SELECT m FROM Mercadoria m WHERE m.merDtcadastro = :merDtcadastro"),
+    @NamedQuery(name = "Mercadoria.findByMerValor", query = "SELECT m FROM Mercadoria m WHERE m.merValor = :merValor"),
+    @NamedQuery(name = "Mercadoria.findByMerQuantidade", query = "SELECT m FROM Mercadoria m WHERE m.merQuantidade = :merQuantidade")})
 public class Mercadoria implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -132,7 +132,7 @@ public class Mercadoria implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.MerMercadoria[ merId=" + merId + " ]";
+        return "sys.shop.entity.Mercadoria[ merId=" + merId + " ]";
     }
     
 }

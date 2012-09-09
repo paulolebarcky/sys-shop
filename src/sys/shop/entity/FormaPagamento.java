@@ -23,13 +23,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "fop_forma_pagamento")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "FopFormaPagamento.findAll", query = "SELECT f FROM FopFormaPagamento f"),
-    @NamedQuery(name = "FopFormaPagamento.findByFopId", query = "SELECT f FROM FopFormaPagamento f WHERE f.fopId = :fopId"),
-    @NamedQuery(name = "FopFormaPagamento.findByFopNome", query = "SELECT f FROM FopFormaPagamento f WHERE f.fopNome = :fopNome"),
-    @NamedQuery(name = "FopFormaPagamento.findByFopSigla", query = "SELECT f FROM FopFormaPagamento f WHERE f.fopSigla = :fopSigla"),
-    @NamedQuery(name = "FopFormaPagamento.findByFopDtcadastro", query = "SELECT f FROM FopFormaPagamento f WHERE f.fopDtcadastro = :fopDtcadastro"),
-    @NamedQuery(name = "FopFormaPagamento.findByFopStatus", query = "SELECT f FROM FopFormaPagamento f WHERE f.fopStatus = :fopStatus"),
-    @NamedQuery(name = "FopFormaPagamento.findByFopDescricao", query = "SELECT f FROM FopFormaPagamento f WHERE f.fopDescricao = :fopDescricao")})
+    @NamedQuery(name = "FormaPagamento.findAll", query = "SELECT f FROM FormaPagamento f"),
+    @NamedQuery(name = "FormaPagamento.findByFopId", query = "SELECT f FROM FormaPagamento f WHERE f.fopId = :fopId"),
+    @NamedQuery(name = "FormaPagamento.findByFopNome", query = "SELECT f FROM FormaPagamento f WHERE f.fopNome = :fopNome"),
+    @NamedQuery(name = "FormaPagamento.findByFopSigla", query = "SELECT f FROM FormaPagamento f WHERE f.fopSigla = :fopSigla"),
+    @NamedQuery(name = "FormaPagamento.findByFopDtcadastro", query = "SELECT f FROM FormaPagamento f WHERE f.fopDtcadastro = :fopDtcadastro"),
+    @NamedQuery(name = "FormaPagamento.findByFopStatus", query = "SELECT f FROM FormaPagamento f WHERE f.fopStatus = :fopStatus"),
+    @NamedQuery(name = "FormaPagamento.findByFopDescricao", query = "SELECT f FROM FormaPagamento f WHERE f.fopDescricao = :fopDescricao")})
 public class FormaPagamento implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -125,7 +125,7 @@ public class FormaPagamento implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.FopFormaPagamento[ fopId=" + fopId + " ]";
+        return "sys.shop.entity.FormaPagamento[ fopId=" + fopId + " ]";
     }
     
 }

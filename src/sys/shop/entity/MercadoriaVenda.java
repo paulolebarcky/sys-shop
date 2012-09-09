@@ -19,12 +19,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "mev_mercadoria_venda")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "MevMercadoriaVenda.findAll", query = "SELECT m FROM MevMercadoriaVenda m"),
-    @NamedQuery(name = "MevMercadoriaVenda.findByMevId", query = "SELECT m FROM MevMercadoriaVenda m WHERE m.mevMercadoriaVendaPK.mevId = :mevId"),
-    @NamedQuery(name = "MevMercadoriaVenda.findByVenId", query = "SELECT m FROM MevMercadoriaVenda m WHERE m.mevMercadoriaVendaPK.venId = :venId"),
-    @NamedQuery(name = "MevMercadoriaVenda.findByMerId", query = "SELECT m FROM MevMercadoriaVenda m WHERE m.mevMercadoriaVendaPK.merId = :merId"),
-    @NamedQuery(name = "MevMercadoriaVenda.findByMevValor", query = "SELECT m FROM MevMercadoriaVenda m WHERE m.mevValor = :mevValor"),
-    @NamedQuery(name = "MevMercadoriaVenda.findByMevStatus", query = "SELECT m FROM MevMercadoriaVenda m WHERE m.mevStatus = :mevStatus")})
+    @NamedQuery(name = "MercadoriaVenda.findAll", query = "SELECT m FROM MercadoriaVenda m"),
+    @NamedQuery(name = "MercadoriaVenda.findByMevId", query = "SELECT m FROM MercadoriaVenda m WHERE m.mevMercadoriaVendaPK.mevId = :mevId"),
+    @NamedQuery(name = "MercadoriaVenda.findByVenId", query = "SELECT m FROM MercadoriaVenda m WHERE m.mevMercadoriaVendaPK.venId = :venId"),
+    @NamedQuery(name = "MercadoriaVenda.findByMerId", query = "SELECT m FROM MercadoriaVenda m WHERE m.mevMercadoriaVendaPK.merId = :merId"),
+    @NamedQuery(name = "MercadoriaVenda.findByMevValor", query = "SELECT m FROM MercadoriaVenda m WHERE m.mevValor = :mevValor"),
+    @NamedQuery(name = "MercadoriaVenda.findByMevStatus", query = "SELECT m FROM MercadoriaVenda m WHERE m.mevStatus = :mevStatus")})
 public class MercadoriaVenda implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
@@ -46,11 +46,11 @@ public class MercadoriaVenda implements Serializable {
         this.mevMercadoriaVendaPK = new MercadoriaVendaPK(mevId, venId, merId);
     }
 
-    public MercadoriaVendaPK getMevMercadoriaVendaPK() {
+    public MercadoriaVendaPK getMercadoriaVendaPK() {
         return mevMercadoriaVendaPK;
     }
 
-    public void setMevMercadoriaVendaPK(MercadoriaVendaPK mevMercadoriaVendaPK) {
+    public void setMercadoriaVendaPK(MercadoriaVendaPK mevMercadoriaVendaPK) {
         this.mevMercadoriaVendaPK = mevMercadoriaVendaPK;
     }
 
@@ -92,7 +92,7 @@ public class MercadoriaVenda implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.MevMercadoriaVenda[ mevMercadoriaVendaPK=" + mevMercadoriaVendaPK + " ]";
+        return "sys.shop.entity.MercadoriaVenda[ mevMercadoriaVendaPK=" + mevMercadoriaVendaPK + " ]";
     }
     
 }

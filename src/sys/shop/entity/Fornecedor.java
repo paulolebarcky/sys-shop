@@ -23,18 +23,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "for_fornecedor")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "ForFornecedor.findAll", query = "SELECT f FROM ForFornecedor f"),
-    @NamedQuery(name = "ForFornecedor.findByForId", query = "SELECT f FROM ForFornecedor f WHERE f.forId = :forId"),
-    @NamedQuery(name = "ForFornecedor.findByCidId", query = "SELECT f FROM ForFornecedor f WHERE f.cidId = :cidId"),
-    @NamedQuery(name = "ForFornecedor.findByForNome", query = "SELECT f FROM ForFornecedor f WHERE f.forNome = :forNome"),
-    @NamedQuery(name = "ForFornecedor.findByForCnpj", query = "SELECT f FROM ForFornecedor f WHERE f.forCnpj = :forCnpj"),
-    @NamedQuery(name = "ForFornecedor.findByForEndereco", query = "SELECT f FROM ForFornecedor f WHERE f.forEndereco = :forEndereco"),
-    @NamedQuery(name = "ForFornecedor.findByForTelefone", query = "SELECT f FROM ForFornecedor f WHERE f.forTelefone = :forTelefone"),
-    @NamedQuery(name = "ForFornecedor.findByForCelular", query = "SELECT f FROM ForFornecedor f WHERE f.forCelular = :forCelular"),
-    @NamedQuery(name = "ForFornecedor.findByForContato", query = "SELECT f FROM ForFornecedor f WHERE f.forContato = :forContato"),
-    @NamedQuery(name = "ForFornecedor.findByForDescricao", query = "SELECT f FROM ForFornecedor f WHERE f.forDescricao = :forDescricao"),
-    @NamedQuery(name = "ForFornecedor.findByForDtcadastro", query = "SELECT f FROM ForFornecedor f WHERE f.forDtcadastro = :forDtcadastro"),
-    @NamedQuery(name = "ForFornecedor.findByForStatus", query = "SELECT f FROM ForFornecedor f WHERE f.forStatus = :forStatus")})
+    @NamedQuery(name = "Fornecedor.findAll", query = "SELECT f FROM Fornecedor f"),
+    @NamedQuery(name = "Fornecedor.findByForId", query = "SELECT f FROM Fornecedor f WHERE f.forId = :forId"),
+    @NamedQuery(name = "Fornecedor.findByCidId", query = "SELECT f FROM Fornecedor f WHERE f.cidId = :cidId"),
+    @NamedQuery(name = "Fornecedor.findByForNome", query = "SELECT f FROM Fornecedor f WHERE f.forNome = :forNome"),
+    @NamedQuery(name = "Fornecedor.findByForCnpj", query = "SELECT f FROM Fornecedor f WHERE f.forCnpj = :forCnpj"),
+    @NamedQuery(name = "Fornecedor.findByForEndereco", query = "SELECT f FROM Fornecedor f WHERE f.forEndereco = :forEndereco"),
+    @NamedQuery(name = "Fornecedor.findByForTelefone", query = "SELECT f FROM Fornecedor f WHERE f.forTelefone = :forTelefone"),
+    @NamedQuery(name = "Fornecedor.findByForCelular", query = "SELECT f FROM Fornecedor f WHERE f.forCelular = :forCelular"),
+    @NamedQuery(name = "Fornecedor.findByForContato", query = "SELECT f FROM Fornecedor f WHERE f.forContato = :forContato"),
+    @NamedQuery(name = "Fornecedor.findByForDescricao", query = "SELECT f FROM Fornecedor f WHERE f.forDescricao = :forDescricao"),
+    @NamedQuery(name = "Fornecedor.findByForDtcadastro", query = "SELECT f FROM Fornecedor f WHERE f.forDtcadastro = :forDtcadastro"),
+    @NamedQuery(name = "Fornecedor.findByForStatus", query = "SELECT f FROM Fornecedor f WHERE f.forStatus = :forStatus")})
 public class Fornecedor implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -186,7 +186,7 @@ public class Fornecedor implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.ForFornecedor[ forId=" + forId + " ]";
+        return "sys.shop.entity.Fornecedor[ forId=" + forId + " ]";
     }
     
 }

@@ -22,12 +22,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "pgv_pagamento_venda")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "PgvPagamentoVenda.findAll", query = "SELECT p FROM PgvPagamentoVenda p"),
-    @NamedQuery(name = "PgvPagamentoVenda.findByPgvId", query = "SELECT p FROM PgvPagamentoVenda p WHERE p.pgvPagamentoVendaPK.pgvId = :pgvId"),
-    @NamedQuery(name = "PgvPagamentoVenda.findByVenId", query = "SELECT p FROM PgvPagamentoVenda p WHERE p.pgvPagamentoVendaPK.venId = :venId"),
-    @NamedQuery(name = "PgvPagamentoVenda.findByPgvData", query = "SELECT p FROM PgvPagamentoVenda p WHERE p.pgvData = :pgvData"),
-    @NamedQuery(name = "PgvPagamentoVenda.findByPgvValor", query = "SELECT p FROM PgvPagamentoVenda p WHERE p.pgvValor = :pgvValor"),
-    @NamedQuery(name = "PgvPagamentoVenda.findByPgvStatus", query = "SELECT p FROM PgvPagamentoVenda p WHERE p.pgvStatus = :pgvStatus")})
+    @NamedQuery(name = "PagamentoVenda.findAll", query = "SELECT p FROM PagamentoVenda p"),
+    @NamedQuery(name = "PagamentoVenda.findByPgvId", query = "SELECT p FROM PagamentoVenda p WHERE p.pgvPagamentoVendaPK.pgvId = :pgvId"),
+    @NamedQuery(name = "PagamentoVenda.findByVenId", query = "SELECT p FROM PagamentoVenda p WHERE p.pgvPagamentoVendaPK.venId = :venId"),
+    @NamedQuery(name = "PagamentoVenda.findByPgvData", query = "SELECT p FROM PagamentoVenda p WHERE p.pgvData = :pgvData"),
+    @NamedQuery(name = "PagamentoVenda.findByPgvValor", query = "SELECT p FROM PagamentoVenda p WHERE p.pgvValor = :pgvValor"),
+    @NamedQuery(name = "PagamentoVenda.findByPgvStatus", query = "SELECT p FROM PagamentoVenda p WHERE p.pgvStatus = :pgvStatus")})
 public class PagamentoVenda implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
@@ -52,11 +52,11 @@ public class PagamentoVenda implements Serializable {
         this.pgvPagamentoVendaPK = new PagamentoVendaPK(pgvId, venId);
     }
 
-    public PagamentoVendaPK getPgvPagamentoVendaPK() {
+    public PagamentoVendaPK getPagamentoVendaPK() {
         return pgvPagamentoVendaPK;
     }
 
-    public void setPgvPagamentoVendaPK(PagamentoVendaPK pgvPagamentoVendaPK) {
+    public void setPagamentoVendaPK(PagamentoVendaPK pgvPagamentoVendaPK) {
         this.pgvPagamentoVendaPK = pgvPagamentoVendaPK;
     }
 
@@ -106,7 +106,7 @@ public class PagamentoVenda implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.PgvPagamentoVenda[ pgvPagamentoVendaPK=" + pgvPagamentoVendaPK + " ]";
+        return "sys.shop.entity.PagamentoVenda[ pgvPagamentoVendaPK=" + pgvPagamentoVendaPK + " ]";
     }
     
 }

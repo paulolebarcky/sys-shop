@@ -22,7 +22,9 @@ public class SysShop {
      */
     public static void main(String[] args) {
         
-        findAll();
+        //create();
+        remove();
+        
     }
 
     public static void create() {

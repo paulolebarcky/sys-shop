@@ -23,18 +23,18 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "ved_vendedor")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "VedVendedor.findAll", query = "SELECT v FROM VedVendedor v"),
-    @NamedQuery(name = "VedVendedor.findByVedId", query = "SELECT v FROM VedVendedor v WHERE v.vedId = :vedId"),
-    @NamedQuery(name = "VedVendedor.findByCidId", query = "SELECT v FROM VedVendedor v WHERE v.cidId = :cidId"),
-    @NamedQuery(name = "VedVendedor.findByLojId", query = "SELECT v FROM VedVendedor v WHERE v.lojId = :lojId"),
-    @NamedQuery(name = "VedVendedor.findByVedNome", query = "SELECT v FROM VedVendedor v WHERE v.vedNome = :vedNome"),
-    @NamedQuery(name = "VedVendedor.findByVedTelefone", query = "SELECT v FROM VedVendedor v WHERE v.vedTelefone = :vedTelefone"),
-    @NamedQuery(name = "VedVendedor.findByVedCelular", query = "SELECT v FROM VedVendedor v WHERE v.vedCelular = :vedCelular"),
-    @NamedQuery(name = "VedVendedor.findByVedCpf", query = "SELECT v FROM VedVendedor v WHERE v.vedCpf = :vedCpf"),
-    @NamedQuery(name = "VedVendedor.findByVedEndereco", query = "SELECT v FROM VedVendedor v WHERE v.vedEndereco = :vedEndereco"),
-    @NamedQuery(name = "VedVendedor.findByVedDtnascimento", query = "SELECT v FROM VedVendedor v WHERE v.vedDtnascimento = :vedDtnascimento"),
-    @NamedQuery(name = "VedVendedor.findByVedDtcadastro", query = "SELECT v FROM VedVendedor v WHERE v.vedDtcadastro = :vedDtcadastro"),
-    @NamedQuery(name = "VedVendedor.findByVedStatus", query = "SELECT v FROM VedVendedor v WHERE v.vedStatus = :vedStatus")})
+    @NamedQuery(name = "Vendedor.findAll", query = "SELECT v FROM Vendedor v"),
+    @NamedQuery(name = "Vendedor.findByVedId", query = "SELECT v FROM Vendedor v WHERE v.vedId = :vedId"),
+    @NamedQuery(name = "Vendedor.findByCidId", query = "SELECT v FROM Vendedor v WHERE v.cidId = :cidId"),
+    @NamedQuery(name = "Vendedor.findByLojId", query = "SELECT v FROM Vendedor v WHERE v.lojId = :lojId"),
+    @NamedQuery(name = "Vendedor.findByVedNome", query = "SELECT v FROM Vendedor v WHERE v.vedNome = :vedNome"),
+    @NamedQuery(name = "Vendedor.findByVedTelefone", query = "SELECT v FROM Vendedor v WHERE v.vedTelefone = :vedTelefone"),
+    @NamedQuery(name = "Vendedor.findByVedCelular", query = "SELECT v FROM Vendedor v WHERE v.vedCelular = :vedCelular"),
+    @NamedQuery(name = "Vendedor.findByVedCpf", query = "SELECT v FROM Vendedor v WHERE v.vedCpf = :vedCpf"),
+    @NamedQuery(name = "Vendedor.findByVedEndereco", query = "SELECT v FROM Vendedor v WHERE v.vedEndereco = :vedEndereco"),
+    @NamedQuery(name = "Vendedor.findByVedDtnascimento", query = "SELECT v FROM Vendedor v WHERE v.vedDtnascimento = :vedDtnascimento"),
+    @NamedQuery(name = "Vendedor.findByVedDtcadastro", query = "SELECT v FROM Vendedor v WHERE v.vedDtcadastro = :vedDtcadastro"),
+    @NamedQuery(name = "Vendedor.findByVedStatus", query = "SELECT v FROM Vendedor v WHERE v.vedStatus = :vedStatus")})
 public class Vendedor implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -189,7 +189,7 @@ public class Vendedor implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.VedVendedor[ vedId=" + vedId + " ]";
+        return "sys.shop.entity.Vendedor[ vedId=" + vedId + " ]";
     }
     
 }

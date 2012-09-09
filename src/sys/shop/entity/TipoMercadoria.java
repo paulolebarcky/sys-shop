@@ -23,13 +23,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "tim_tipo_mercadoria")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TimTipoMercadoria.findAll", query = "SELECT t FROM TimTipoMercadoria t"),
-    @NamedQuery(name = "TimTipoMercadoria.findByTimId", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timId = :timId"),
-    @NamedQuery(name = "TimTipoMercadoria.findByTimNome", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timNome = :timNome"),
-    @NamedQuery(name = "TimTipoMercadoria.findByTimSigla", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timSigla = :timSigla"),
-    @NamedQuery(name = "TimTipoMercadoria.findByTimDtcadastro", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timDtcadastro = :timDtcadastro"),
-    @NamedQuery(name = "TimTipoMercadoria.findByTimDescricao", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timDescricao = :timDescricao"),
-    @NamedQuery(name = "TimTipoMercadoria.findByTimStatus", query = "SELECT t FROM TimTipoMercadoria t WHERE t.timStatus = :timStatus")})
+    @NamedQuery(name = "TipoMercadoria.findAll", query = "SELECT t FROM TipoMercadoria t"),
+    @NamedQuery(name = "TipoMercadoria.findByTimId", query = "SELECT t FROM TipoMercadoria t WHERE t.timId = :timId"),
+    @NamedQuery(name = "TipoMercadoria.findByTimNome", query = "SELECT t FROM TipoMercadoria t WHERE t.timNome = :timNome"),
+    @NamedQuery(name = "TipoMercadoria.findByTimSigla", query = "SELECT t FROM TipoMercadoria t WHERE t.timSigla = :timSigla"),
+    @NamedQuery(name = "TipoMercadoria.findByTimDtcadastro", query = "SELECT t FROM TipoMercadoria t WHERE t.timDtcadastro = :timDtcadastro"),
+    @NamedQuery(name = "TipoMercadoria.findByTimDescricao", query = "SELECT t FROM TipoMercadoria t WHERE t.timDescricao = :timDescricao"),
+    @NamedQuery(name = "TipoMercadoria.findByTimStatus", query = "SELECT t FROM TipoMercadoria t WHERE t.timStatus = :timStatus")})
 public class TipoMercadoria implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -125,7 +125,7 @@ public class TipoMercadoria implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.TimTipoMercadoria[ timId=" + timId + " ]";
+        return "sys.shop.entity.TipoMercadoria[ timId=" + timId + " ]";
     }
     
 }

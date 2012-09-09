@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Representa a entidade compra.
+ * Representa a entidade relacionada a compra.
  * 
  * @author paulo
  * @since 2012-09-09
@@ -23,14 +23,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "com_compra")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "ComCompra.findAll", query = "SELECT c FROM ComCompra c"),
-    @NamedQuery(name = "ComCompra.findByComId", query = "SELECT c FROM ComCompra c WHERE c.comId = :comId"),
-    @NamedQuery(name = "ComCompra.findByForId", query = "SELECT c FROM ComCompra c WHERE c.forId = :forId"),
-    @NamedQuery(name = "ComCompra.findByTivId", query = "SELECT c FROM ComCompra c WHERE c.tivId = :tivId"),
-    @NamedQuery(name = "ComCompra.findByFopId", query = "SELECT c FROM ComCompra c WHERE c.fopId = :fopId"),
-    @NamedQuery(name = "ComCompra.findByComValor", query = "SELECT c FROM ComCompra c WHERE c.comValor = :comValor"),
-    @NamedQuery(name = "ComCompra.findByComData", query = "SELECT c FROM ComCompra c WHERE c.comData = :comData"),
-    @NamedQuery(name = "ComCompra.findByComDescricao", query = "SELECT c FROM ComCompra c WHERE c.comDescricao = :comDescricao")})
+    @NamedQuery(name = "Compra.findAll", query = "SELECT c FROM Compra c"),
+    @NamedQuery(name = "Compra.findByComId", query = "SELECT c FROM Compra c WHERE c.comId = :comId"),
+    @NamedQuery(name = "Compra.findByForId", query = "SELECT c FROM Compra c WHERE c.forId = :forId"),
+    @NamedQuery(name = "Compra.findByTivId", query = "SELECT c FROM Compra c WHERE c.tivId = :tivId"),
+    @NamedQuery(name = "Compra.findByFopId", query = "SELECT c FROM Compra c WHERE c.fopId = :fopId"),
+    @NamedQuery(name = "Compra.findByComValor", query = "SELECT c FROM Compra c WHERE c.comValor = :comValor"),
+    @NamedQuery(name = "Compra.findByComData", query = "SELECT c FROM Compra c WHERE c.comData = :comData"),
+    @NamedQuery(name = "Compra.findByComDescricao", query = "SELECT c FROM Compra c WHERE c.comDescricao = :comDescricao")})
 public class Compra implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -147,7 +147,7 @@ public class Compra implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.ComCompra[ comId=" + comId + " ]";
+        return "sys.shop.entity.Compra[ comId=" + comId + " ]";
     }
     
 }

@@ -23,16 +23,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "loj_loja")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "LojLoja.findAll", query = "SELECT l FROM LojLoja l"),
-    @NamedQuery(name = "LojLoja.findByLojId", query = "SELECT l FROM LojLoja l WHERE l.lojId = :lojId"),
-    @NamedQuery(name = "LojLoja.findByLojNome", query = "SELECT l FROM LojLoja l WHERE l.lojNome = :lojNome"),
-    @NamedQuery(name = "LojLoja.findByLojTelefone", query = "SELECT l FROM LojLoja l WHERE l.lojTelefone = :lojTelefone"),
-    @NamedQuery(name = "LojLoja.findByLojEndereco", query = "SELECT l FROM LojLoja l WHERE l.lojEndereco = :lojEndereco"),
-    @NamedQuery(name = "LojLoja.findByLojCnpj", query = "SELECT l FROM LojLoja l WHERE l.lojCnpj = :lojCnpj"),
-    @NamedQuery(name = "LojLoja.findByLojStatus", query = "SELECT l FROM LojLoja l WHERE l.lojStatus = :lojStatus"),
-    @NamedQuery(name = "LojLoja.findByLojCelular", query = "SELECT l FROM LojLoja l WHERE l.lojCelular = :lojCelular"),
-    @NamedQuery(name = "LojLoja.findByLojDtcadastro", query = "SELECT l FROM LojLoja l WHERE l.lojDtcadastro = :lojDtcadastro"),
-    @NamedQuery(name = "LojLoja.findByLojDescricao", query = "SELECT l FROM LojLoja l WHERE l.lojDescricao = :lojDescricao")})
+    @NamedQuery(name = "Loja.findAll", query = "SELECT l FROM Loja l"),
+    @NamedQuery(name = "Loja.findByLojId", query = "SELECT l FROM Loja l WHERE l.lojId = :lojId"),
+    @NamedQuery(name = "Loja.findByLojNome", query = "SELECT l FROM Loja l WHERE l.lojNome = :lojNome"),
+    @NamedQuery(name = "Loja.findByLojTelefone", query = "SELECT l FROM Loja l WHERE l.lojTelefone = :lojTelefone"),
+    @NamedQuery(name = "Loja.findByLojEndereco", query = "SELECT l FROM Loja l WHERE l.lojEndereco = :lojEndereco"),
+    @NamedQuery(name = "Loja.findByLojCnpj", query = "SELECT l FROM Loja l WHERE l.lojCnpj = :lojCnpj"),
+    @NamedQuery(name = "Loja.findByLojStatus", query = "SELECT l FROM Loja l WHERE l.lojStatus = :lojStatus"),
+    @NamedQuery(name = "Loja.findByLojCelular", query = "SELECT l FROM Loja l WHERE l.lojCelular = :lojCelular"),
+    @NamedQuery(name = "Loja.findByLojDtcadastro", query = "SELECT l FROM Loja l WHERE l.lojDtcadastro = :lojDtcadastro"),
+    @NamedQuery(name = "Loja.findByLojDescricao", query = "SELECT l FROM Loja l WHERE l.lojDescricao = :lojDescricao")})
 public class Loja implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -158,7 +158,7 @@ public class Loja implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.LojLoja[ lojId=" + lojId + " ]";
+        return "sys.shop.entity.Loja[ lojId=" + lojId + " ]";
     }
     
 }

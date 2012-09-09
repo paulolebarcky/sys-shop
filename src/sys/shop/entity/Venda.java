@@ -23,16 +23,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "ven_venda")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "VenVenda.findAll", query = "SELECT v FROM VenVenda v"),
-    @NamedQuery(name = "VenVenda.findByVenId", query = "SELECT v FROM VenVenda v WHERE v.venId = :venId"),
-    @NamedQuery(name = "VenVenda.findByCliId", query = "SELECT v FROM VenVenda v WHERE v.cliId = :cliId"),
-    @NamedQuery(name = "VenVenda.findByVedId", query = "SELECT v FROM VenVenda v WHERE v.vedId = :vedId"),
-    @NamedQuery(name = "VenVenda.findByTivId", query = "SELECT v FROM VenVenda v WHERE v.tivId = :tivId"),
-    @NamedQuery(name = "VenVenda.findByFopId", query = "SELECT v FROM VenVenda v WHERE v.fopId = :fopId"),
-    @NamedQuery(name = "VenVenda.findByVenValor", query = "SELECT v FROM VenVenda v WHERE v.venValor = :venValor"),
-    @NamedQuery(name = "VenVenda.findByVenStatus", query = "SELECT v FROM VenVenda v WHERE v.venStatus = :venStatus"),
-    @NamedQuery(name = "VenVenda.findByVenData", query = "SELECT v FROM VenVenda v WHERE v.venData = :venData"),
-    @NamedQuery(name = "VenVenda.findByVenDescricao", query = "SELECT v FROM VenVenda v WHERE v.venDescricao = :venDescricao")})
+    @NamedQuery(name = "Venda.findAll", query = "SELECT v FROM Venda v"),
+    @NamedQuery(name = "Venda.findByVenId", query = "SELECT v FROM Venda v WHERE v.venId = :venId"),
+    @NamedQuery(name = "Venda.findByCliId", query = "SELECT v FROM Venda v WHERE v.cliId = :cliId"),
+    @NamedQuery(name = "Venda.findByVedId", query = "SELECT v FROM Venda v WHERE v.vedId = :vedId"),
+    @NamedQuery(name = "Venda.findByTivId", query = "SELECT v FROM Venda v WHERE v.tivId = :tivId"),
+    @NamedQuery(name = "Venda.findByFopId", query = "SELECT v FROM Venda v WHERE v.fopId = :fopId"),
+    @NamedQuery(name = "Venda.findByVenValor", query = "SELECT v FROM Venda v WHERE v.venValor = :venValor"),
+    @NamedQuery(name = "Venda.findByVenStatus", query = "SELECT v FROM Venda v WHERE v.venStatus = :venStatus"),
+    @NamedQuery(name = "Venda.findByVenData", query = "SELECT v FROM Venda v WHERE v.venData = :venData"),
+    @NamedQuery(name = "Venda.findByVenDescricao", query = "SELECT v FROM Venda v WHERE v.venDescricao = :venDescricao")})
 public class Venda implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -171,7 +171,7 @@ public class Venda implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.VenVenda[ venId=" + venId + " ]";
+        return "sys.shop.entity.Venda[ venId=" + venId + " ]";
     }
     
 }

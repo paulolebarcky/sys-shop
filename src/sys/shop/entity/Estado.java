@@ -20,10 +20,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "est_estado")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "EstEstado.findAll", query = "SELECT e FROM EstEstado e"),
-    @NamedQuery(name = "EstEstado.findByEstId", query = "SELECT e FROM EstEstado e WHERE e.estId = :estId"),
-    @NamedQuery(name = "EstEstado.findByEstNome", query = "SELECT e FROM EstEstado e WHERE e.estNome = :estNome"),
-    @NamedQuery(name = "EstEstado.findByEstSigla", query = "SELECT e FROM EstEstado e WHERE e.estSigla = :estSigla")})
+    @NamedQuery(name = "Estado.findAll", query = "SELECT e FROM Estado e"),
+    @NamedQuery(name = "Estado.findByEstId", query = "SELECT e FROM Estado e WHERE e.estId = :estId"),
+    @NamedQuery(name = "Estado.findByEstNome", query = "SELECT e FROM Estado e WHERE e.estNome = :estNome"),
+    @NamedQuery(name = "Estado.findByEstSigla", query = "SELECT e FROM Estado e WHERE e.estSigla = :estSigla")})
 public class Estado implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -88,7 +88,7 @@ public class Estado implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.EstEstado[ estId=" + estId + " ]";
+        return "sys.shop.entity.Estado[ estId=" + estId + " ]";
     }
     
 }

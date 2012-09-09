@@ -23,12 +23,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "tiv_tipo_venda")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TivTipoVenda.findAll", query = "SELECT t FROM TivTipoVenda t"),
-    @NamedQuery(name = "TivTipoVenda.findByTivId", query = "SELECT t FROM TivTipoVenda t WHERE t.tivId = :tivId"),
-    @NamedQuery(name = "TivTipoVenda.findByTivNome", query = "SELECT t FROM TivTipoVenda t WHERE t.tivNome = :tivNome"),
-    @NamedQuery(name = "TivTipoVenda.findByTivDtcadastro", query = "SELECT t FROM TivTipoVenda t WHERE t.tivDtcadastro = :tivDtcadastro"),
-    @NamedQuery(name = "TivTipoVenda.findByTivStatus", query = "SELECT t FROM TivTipoVenda t WHERE t.tivStatus = :tivStatus"),
-    @NamedQuery(name = "TivTipoVenda.findByTivDescricao", query = "SELECT t FROM TivTipoVenda t WHERE t.tivDescricao = :tivDescricao")})
+    @NamedQuery(name = "TipoVenda.findAll", query = "SELECT t FROM TipoVenda t"),
+    @NamedQuery(name = "TipoVenda.findByTivId", query = "SELECT t FROM TipoVenda t WHERE t.tivId = :tivId"),
+    @NamedQuery(name = "TipoVenda.findByTivNome", query = "SELECT t FROM TipoVenda t WHERE t.tivNome = :tivNome"),
+    @NamedQuery(name = "TipoVenda.findByTivDtcadastro", query = "SELECT t FROM TipoVenda t WHERE t.tivDtcadastro = :tivDtcadastro"),
+    @NamedQuery(name = "TipoVenda.findByTivStatus", query = "SELECT t FROM TipoVenda t WHERE t.tivStatus = :tivStatus"),
+    @NamedQuery(name = "TipoVenda.findByTivDescricao", query = "SELECT t FROM TipoVenda t WHERE t.tivDescricao = :tivDescricao")})
 public class TipoVenda implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -114,7 +114,7 @@ public class TipoVenda implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.TivTipoVenda[ tivId=" + tivId + " ]";
+        return "sys.shop.entity.TipoVenda[ tivId=" + tivId + " ]";
     }
     
 }

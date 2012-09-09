@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Representa a entidade cliente.
+ * Representa a entidade relacionada a cliente.
  * 
  * @author paulo
  * @since 2012-09-09
@@ -23,21 +23,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "cli_cliente")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "CliCliente.findAll", query = "SELECT c FROM CliCliente c"),
-    @NamedQuery(name = "CliCliente.findByCliId", query = "SELECT c FROM CliCliente c WHERE c.cliId = :cliId"),
-    @NamedQuery(name = "CliCliente.findByCidId", query = "SELECT c FROM CliCliente c WHERE c.cidId = :cidId"),
-    @NamedQuery(name = "CliCliente.findByLojId", query = "SELECT c FROM CliCliente c WHERE c.lojId = :lojId"),
-    @NamedQuery(name = "CliCliente.findByCliNome", query = "SELECT c FROM CliCliente c WHERE c.cliNome = :cliNome"),
-    @NamedQuery(name = "CliCliente.findByCliRg", query = "SELECT c FROM CliCliente c WHERE c.cliRg = :cliRg"),
-    @NamedQuery(name = "CliCliente.findByCliTelefone", query = "SELECT c FROM CliCliente c WHERE c.cliTelefone = :cliTelefone"),
-    @NamedQuery(name = "CliCliente.findByCliCelular", query = "SELECT c FROM CliCliente c WHERE c.cliCelular = :cliCelular"),
-    @NamedQuery(name = "CliCliente.findByCliEndereco", query = "SELECT c FROM CliCliente c WHERE c.cliEndereco = :cliEndereco"),
-    @NamedQuery(name = "CliCliente.findByCliCpf", query = "SELECT c FROM CliCliente c WHERE c.cliCpf = :cliCpf"),
-    @NamedQuery(name = "CliCliente.findByCliCnpj", query = "SELECT c FROM CliCliente c WHERE c.cliCnpj = :cliCnpj"),
-    @NamedQuery(name = "CliCliente.findByCliDescricao", query = "SELECT c FROM CliCliente c WHERE c.cliDescricao = :cliDescricao"),
-    @NamedQuery(name = "CliCliente.findByCliDtcadastro", query = "SELECT c FROM CliCliente c WHERE c.cliDtcadastro = :cliDtcadastro"),
-    @NamedQuery(name = "CliCliente.findByCliStatus", query = "SELECT c FROM CliCliente c WHERE c.cliStatus = :cliStatus"),
-    @NamedQuery(name = "CliCliente.findByCliDtnascimento", query = "SELECT c FROM CliCliente c WHERE c.cliDtnascimento = :cliDtnascimento")})
+    @NamedQuery(name = "Cliente.findAll", query = "SELECT c FROM Cliente c"),
+    @NamedQuery(name = "Cliente.findByCliId", query = "SELECT c FROM Cliente c WHERE c.cliId = :cliId"),
+    @NamedQuery(name = "Cliente.findByCidId", query = "SELECT c FROM Cliente c WHERE c.cidId = :cidId"),
+    @NamedQuery(name = "Cliente.findByLojId", query = "SELECT c FROM Cliente c WHERE c.lojId = :lojId"),
+    @NamedQuery(name = "Cliente.findByCliNome", query = "SELECT c FROM Cliente c WHERE c.cliNome = :cliNome"),
+    @NamedQuery(name = "Cliente.findByCliRg", query = "SELECT c FROM Cliente c WHERE c.cliRg = :cliRg"),
+    @NamedQuery(name = "Cliente.findByCliTelefone", query = "SELECT c FROM Cliente c WHERE c.cliTelefone = :cliTelefone"),
+    @NamedQuery(name = "Cliente.findByCliCelular", query = "SELECT c FROM Cliente c WHERE c.cliCelular = :cliCelular"),
+    @NamedQuery(name = "Cliente.findByCliEndereco", query = "SELECT c FROM Cliente c WHERE c.cliEndereco = :cliEndereco"),
+    @NamedQuery(name = "Cliente.findByCliCpf", query = "SELECT c FROM Cliente c WHERE c.cliCpf = :cliCpf"),
+    @NamedQuery(name = "Cliente.findByCliCnpj", query = "SELECT c FROM Cliente c WHERE c.cliCnpj = :cliCnpj"),
+    @NamedQuery(name = "Cliente.findByCliDescricao", query = "SELECT c FROM Cliente c WHERE c.cliDescricao = :cliDescricao"),
+    @NamedQuery(name = "Cliente.findByCliDtcadastro", query = "SELECT c FROM Cliente c WHERE c.cliDtcadastro = :cliDtcadastro"),
+    @NamedQuery(name = "Cliente.findByCliStatus", query = "SELECT c FROM Cliente c WHERE c.cliStatus = :cliStatus"),
+    @NamedQuery(name = "Cliente.findByCliDtnascimento", query = "SELECT c FROM Cliente c WHERE c.cliDtnascimento = :cliDtnascimento")})
 public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -222,7 +222,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.CliCliente[ cliId=" + cliId + " ]";
+        return "sys.shop.entity.Cliente[ cliId=" + cliId + " ]";
     }
     
 }

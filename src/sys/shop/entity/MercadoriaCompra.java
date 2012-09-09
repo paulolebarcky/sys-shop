@@ -20,15 +20,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "mec_mercadoria_compra")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "MecMercadoriaCompra.findAll", query = "SELECT m FROM MecMercadoriaCompra m"),
-    @NamedQuery(name = "MecMercadoriaCompra.findByMecId", query = "SELECT m FROM MecMercadoriaCompra m WHERE m.mecMercadoriaCompraPK.mecId = :mecId"),
-    @NamedQuery(name = "MecMercadoriaCompra.findByComId", query = "SELECT m FROM MecMercadoriaCompra m WHERE m.mecMercadoriaCompraPK.comId = :comId"),
-    @NamedQuery(name = "MecMercadoriaCompra.findByMerId", query = "SELECT m FROM MecMercadoriaCompra m WHERE m.merId = :merId"),
-    @NamedQuery(name = "MecMercadoriaCompra.findByMecStatus", query = "SELECT m FROM MecMercadoriaCompra m WHERE m.mecStatus = :mecStatus")})
+    @NamedQuery(name = "MercadoriaCompra.findAll", query = "SELECT m FROM MercadoriaCompra m"),
+    @NamedQuery(name = "MercadoriaCompra.findByMecId", query = "SELECT m FROM MercadoriaCompra m WHERE m.mercadoriaCompraPK.mecId = :mecId"),
+    @NamedQuery(name = "MercadoriaCompra.findByComId", query = "SELECT m FROM MercadoriaCompra m WHERE m.mercadoriaCompraPK.comId = :comId"),
+    @NamedQuery(name = "MercadoriaCompra.findByMerId", query = "SELECT m FROM MercadoriaCompra m WHERE m.merId = :merId"),
+    @NamedQuery(name = "MercadoriaCompra.findByMecStatus", query = "SELECT m FROM MercadoriaCompra m WHERE m.mecStatus = :mecStatus")})
 public class MercadoriaCompra implements Serializable {
     private static final long serialVersionUID = 1L;
     @EmbeddedId
-    protected MercadoriaCompraPK mecMercadoriaCompraPK;
+    protected MercadoriaCompraPK mercadoriaCompraPK;
     @Basic(optional = false)
     @Column(name = "mer_id")
     private int merId;
@@ -38,25 +38,25 @@ public class MercadoriaCompra implements Serializable {
     public MercadoriaCompra() {
     }
 
-    public MercadoriaCompra(MercadoriaCompraPK mecMercadoriaCompraPK) {
-        this.mecMercadoriaCompraPK = mecMercadoriaCompraPK;
+    public MercadoriaCompra(MercadoriaCompraPK mercadoriaCompraPK) {
+        this.mercadoriaCompraPK = mercadoriaCompraPK;
     }
 
-    public MercadoriaCompra(MercadoriaCompraPK mecMercadoriaCompraPK, int merId) {
-        this.mecMercadoriaCompraPK = mecMercadoriaCompraPK;
+    public MercadoriaCompra(MercadoriaCompraPK mercadoriaCompraPK, int merId) {
+        this.mercadoriaCompraPK = mercadoriaCompraPK;
         this.merId = merId;
     }
 
     public MercadoriaCompra(int mecId, int comId) {
-        this.mecMercadoriaCompraPK = new MercadoriaCompraPK(mecId, comId);
+        this.mercadoriaCompraPK = new MercadoriaCompraPK(mecId, comId);
     }
 
-    public MercadoriaCompraPK getMecMercadoriaCompraPK() {
-        return mecMercadoriaCompraPK;
+    public MercadoriaCompraPK getMercadoriaCompraPK() {
+        return mercadoriaCompraPK;
     }
 
-    public void setMecMercadoriaCompraPK(MercadoriaCompraPK mecMercadoriaCompraPK) {
-        this.mecMercadoriaCompraPK = mecMercadoriaCompraPK;
+    public void setMercadoriaCompraPK(MercadoriaCompraPK mercadoriaCompraPK) {
+        this.mercadoriaCompraPK = mercadoriaCompraPK;
     }
 
     public int getMerId() {
@@ -78,7 +78,7 @@ public class MercadoriaCompra implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (mecMercadoriaCompraPK != null ? mecMercadoriaCompraPK.hashCode() : 0);
+        hash += (mercadoriaCompraPK != null ? mercadoriaCompraPK.hashCode() : 0);
         return hash;
     }
 
@@ -89,7 +89,7 @@ public class MercadoriaCompra implements Serializable {
             return false;
         }
         MercadoriaCompra other = (MercadoriaCompra) object;
-        if ((this.mecMercadoriaCompraPK == null && other.mecMercadoriaCompraPK != null) || (this.mecMercadoriaCompraPK != null && !this.mecMercadoriaCompraPK.equals(other.mecMercadoriaCompraPK))) {
+        if ((this.mercadoriaCompraPK == null && other.mercadoriaCompraPK != null) || (this.mercadoriaCompraPK != null && !this.mercadoriaCompraPK.equals(other.mercadoriaCompraPK))) {
             return false;
         }
         return true;
@@ -97,7 +97,7 @@ public class MercadoriaCompra implements Serializable {
 
     @Override
     public String toString() {
-        return "sys.shop.entity.MecMercadoriaCompra[ mecMercadoriaCompraPK=" + mecMercadoriaCompraPK + " ]";
+        return "sys.shop.entity.MercadoriaCompra[ mercadoriaCompraPK=" + mercadoriaCompraPK + " ]";
     }
     
 }
