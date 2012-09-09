@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sys.shop;
+package sys.shop.main;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import sys.shop.controller.EstadoController;
 import sys.shop.controller.exceptions.PreexistingEntityException;
 import sys.shop.entity.Estado;
+import sys.shop.view.PrincipalView;
 
 /**
  *
@@ -22,8 +23,9 @@ public class SysShop {
      */
     public static void main(String[] args) {
         
-        //create();
-        remove();
+        PrincipalView view = new PrincipalView();
+        view.show();
+        
         
     }
 
