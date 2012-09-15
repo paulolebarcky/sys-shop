@@ -16,6 +16,11 @@ public class PrincipalView extends javax.swing.JFrame {
     public PrincipalView() {
         initComponents();
     }
+    
+    private void setCustomizeTitle(String title) {
+        setTitle("SysShop - " + title);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,6 +54,8 @@ public class PrincipalView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ShopSys");
+        setBounds(new java.awt.Rectangle(30, 30, 30, 30));
+        setFocusCycleRoot(false);
         setPreferredSize(new java.awt.Dimension(800, 600));
 
         fileMenu.setMnemonic('f');
@@ -180,11 +187,11 @@ public class PrincipalView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 400, Short.MAX_VALUE)
+            .add(0, 824, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 279, Short.MAX_VALUE)
+            .add(0, 624, Short.MAX_VALUE)
         );
 
         pack();
@@ -195,48 +202,57 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
+        setCustomizeTitle("Cadastro de Cliente");
         setContentPane(new ClienteView());
-        this.setVisible(true);
+        pack();
     }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        setCustomizeTitle("Cadastro de Tipo de Mercadoria");
         setContentPane(new TipoMercadoriaView());
-        this.setVisible(true);
+        pack();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+        setCustomizeTitle("Cadastro de Loja");
         setContentPane(new LojaView());
-        this.setVisible(true);
+        pack();
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        setCustomizeTitle("Cadastro de Estado");
         setContentPane(new EstadoView());
-        this.setVisible(true);
+        pack();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        setCustomizeTitle("Cadastro de Cidade");
         setContentPane(new CidadeView());
-        this.setVisible(true);
+        pack();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
+        setCustomizeTitle("Cadastro de Vendedor");
         setContentPane(new VendedorView());
-        this.setVisible(true);
+        pack();
     }//GEN-LAST:event_saveMenuItemActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        setCustomizeTitle("Cadastro de Fornecedor");
         setContentPane(new FornecedorView());
-        this.setVisible(true);
+        pack();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        setCustomizeTitle("Cadastro de Tipo de Venda");
         setContentPane(new TipoVendaView());
-        this.setVisible(true);
+        pack();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        setCustomizeTitle("Cadastro de Forma de Pagamento");
         setContentPane(new FormaPagamentoView());
-        this.setVisible(true);
+        pack();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**

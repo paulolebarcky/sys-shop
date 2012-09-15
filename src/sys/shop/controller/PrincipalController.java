@@ -2,6 +2,8 @@ package sys.shop.controller;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
@@ -18,12 +20,15 @@ import sys.shop.controller.exceptions.NonexistentEntityException;
 public abstract class PrincipalController<T> extends PersistenceManager implements Serializable {
 
     private T t;
+    
+    //public static final Logger logger = Logger.getLogger(PrincipalController.class.getName());
 
     public PrincipalController(T t) {
         this.t = t;
     }
 
-    public void create() throws Exception {
+    public void create() throws Exception{
+        //logger.log(Level.INFO, "Create :{0}", this.toString());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -31,6 +36,7 @@ public abstract class PrincipalController<T> extends PersistenceManager implemen
             em.persist(this.t);
             em.getTransaction().commit();
         } catch (Exception ex) {
+            //logger.warning(ex.getMessage());
             throw ex;
         } finally {
             if (em != null) {
@@ -40,6 +46,7 @@ public abstract class PrincipalController<T> extends PersistenceManager implemen
     }
 
     public void edit() throws NonexistentEntityException, Exception {
+        //logger.log(Level.INFO, "Edit :{0}", this.toString());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -56,6 +63,7 @@ public abstract class PrincipalController<T> extends PersistenceManager implemen
     }
 
     public void remove(Integer id) throws NonexistentEntityException {
+        //logger.log(Level.INFO, "Remove :{0}", this.toString());
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -92,14 +100,17 @@ public abstract class PrincipalController<T> extends PersistenceManager implemen
     }
 
     public List<T> findEntities() {
+        //logger.log(Level.INFO, "FindEntities :{0}", this.toString());
         return findEntities(true, -1, -1);
     }
 
     public List<T> findEntities(int maxResults, int firstResult) {
+        //logger.log(Level.INFO, "FindEntities :{0}", this.toString());
         return findEntities(false, maxResults, firstResult);
     }
 
     public Object find(Integer id) {
+        //logger.log(Level.INFO, "FInd :{0}", this.toString());
         EntityManager em = getEntityManager();
         try {
             return em.find(this.t.getClass(), id);
@@ -109,6 +120,7 @@ public abstract class PrincipalController<T> extends PersistenceManager implemen
     }
 
     public int getCount() {
+        //logger.log(Level.INFO, "Count :{0}", this.toString());
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
