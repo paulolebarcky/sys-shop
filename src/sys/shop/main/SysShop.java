@@ -26,14 +26,13 @@ public class SysShop {
         PrincipalView view = new PrincipalView();
         view.setVisible(true);
         
-        
+        //create();
     }
 
     public static void create() {
         System.out.println("Create entering Tests");
 
         Estado estEstado = new Estado();
-        estEstado.setEstId(3);
         estEstado.setEstNome("Rio de Janeiro");
         estEstado.setEstSigla("RJ");
 
