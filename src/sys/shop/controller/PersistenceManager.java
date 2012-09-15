@@ -10,18 +10,18 @@ import javax.persistence.Persistence;
  * @author paulo
  * @since 2012-09-09
  */
-public class PersistenceManager {
+public abstract class PersistenceManager {
 
     public static final boolean DEBUG = true;
     /**
      *
      */
-    private EntityManagerFactory emf;
+    private static EntityManagerFactory emf;
 
     public PersistenceManager() {
     }
 
-    public EntityManager getEntityManager() {
+    public static EntityManager getEntityManager() {
 
         if (emf == null) {
             createEntityManagerFactory();
@@ -29,7 +29,7 @@ public class PersistenceManager {
         return emf.createEntityManager();
     }
 
-    public void closeEntityManagerFactory() {
+    public static void closeEntityManagerFactory() {
 
         if (emf != null) {
             emf.close();
@@ -40,9 +40,9 @@ public class PersistenceManager {
         }
     }
 
-    protected void createEntityManagerFactory() {
+    protected static void createEntityManagerFactory() {
 
-        this.emf = Persistence.createEntityManagerFactory("sys-shopPU");
+        emf = Persistence.createEntityManagerFactory("sys-shopPU");
         if (DEBUG) {
             System.out.println("n*** Persistence started at " + new java.util.Date());
         }

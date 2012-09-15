@@ -24,7 +24,7 @@ public class SysShop {
     public static void main(String[] args) {
         
         PrincipalView view = new PrincipalView();
-        view.show();
+        view.setVisible(true);
         
         
     }
