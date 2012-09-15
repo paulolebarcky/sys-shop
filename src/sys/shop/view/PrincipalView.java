@@ -81,9 +81,19 @@ public class PrincipalView extends javax.swing.JFrame {
 
         saveMenuItem.setMnemonic('s');
         saveMenuItem.setText("Vendedor");
+        saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveMenuItem);
 
         jMenuItem5.setText("Fornecedor");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         fileMenu.add(jMenuItem5);
 
         saveAsMenuItem.setMnemonic('a');
@@ -96,6 +106,11 @@ public class PrincipalView extends javax.swing.JFrame {
         fileMenu.add(saveAsMenuItem);
 
         jMenuItem2.setText("Tipo Venda");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         fileMenu.add(jMenuItem2);
 
         jMenuItem6.setText("Tipo Mercadoria");
@@ -107,6 +122,11 @@ public class PrincipalView extends javax.swing.JFrame {
         fileMenu.add(jMenuItem6);
 
         jMenuItem1.setText("Forma pagamento");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         fileMenu.add(jMenuItem1);
 
         exitMenuItem.setMnemonic('x');
@@ -175,15 +195,18 @@ public class PrincipalView extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
-        // TODO add your handling code here:
+        setContentPane(new ClienteView());
+        this.setVisible(true);
     }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
+        setContentPane(new TipoMercadoriaView());
+        this.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-        // TODO add your handling code here:
+        setContentPane(new LojaView());
+        this.setVisible(true);
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -195,6 +218,26 @@ public class PrincipalView extends javax.swing.JFrame {
         setContentPane(new CidadeView());
         this.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
+        setContentPane(new VendedorView());
+        this.setVisible(true);
+    }//GEN-LAST:event_saveMenuItemActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        setContentPane(new FornecedorView());
+        this.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        setContentPane(new TipoVendaView());
+        this.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        setContentPane(new FormaPagamentoView());
+        this.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
