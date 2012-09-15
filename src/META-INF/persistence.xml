@@ -2,21 +2,21 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="sys-shopPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>sys.shop.main.entity.Loja</class>
-    <class>sys.shop.main.entity.Mercadoria</class>
-    <class>sys.shop.main.entity.Compra</class>
-    <class>sys.shop.main.entity.TipoVenda</class>
-    <class>sys.shop.main.entity.Vendedor</class>
-    <class>sys.shop.main.entity.TipoMercadoria</class>
-    <class>sys.shop.main.entity.Cidade</class>
-    <class>sys.shop.main.entity.PagamentoVenda</class>
-    <class>sys.shop.main.entity.FormaPagamento</class>
-    <class>sys.shop.main.entity.MercadoriaCompra</class>
-    <class>sys.shop.main.entity.Estado</class>
-    <class>sys.shop.main.entity.Venda</class>
-    <class>sys.shop.main.entity.Cliente</class>
-    <class>sys.shop.main.entity.MercadoriaVenda</class>
-    <class>sys.shop.main.entity.Fornecedor</class>
+    <class>sys.shop.entity.Loja</class>
+    <class>sys.shop.entity.Mercadoria</class>
+    <class>sys.shop.entity.Compra</class>
+    <class>sys.shop.entity.TipoVenda</class>
+    <class>sys.shop.entity.Vendedor</class>
+    <class>sys.shop.entity.TipoMercadoria</class>
+    <class>sys.shop.entity.Cidade</class>
+    <class>sys.shop.entity.PagamentoVenda</class>
+    <class>sys.shop.entity.FormaPagamento</class>
+    <class>sys.shop.entity.MercadoriaCompra</class>
+    <class>sys.shop.entity.Estado</class>
+    <class>sys.shop.entity.Venda</class>
+    <class>sys.shop.entity.Cliente</class>
+    <class>sys.shop.entity.MercadoriaVenda</class>
+    <class>sys.shop.entity.Fornecedor</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://127.0.0.1:5433/sysdb"/>
       <property name="javax.persistence.jdbc.password" value="plus"/>
