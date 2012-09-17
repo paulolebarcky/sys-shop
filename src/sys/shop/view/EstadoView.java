@@ -93,6 +93,12 @@ public class EstadoView extends JPanel {
 
         lblSigla.setText("Sigla:");
 
+        txtCodigo.setEditable(false);
+
+        txtEstado.setEditable(false);
+
+        txtSigla.setEditable(false);
+
         javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);
         panelContent.setLayout(panelContentLayout);
         panelContentLayout.setHorizontalGroup(
@@ -156,14 +162,16 @@ public class EstadoView extends JPanel {
         
         if (btnIncluir.getText().equals(DefaultView.BTN_INCLUIR)) {
             btnIncluir.setText(DefaultView.BTN_GRAVAR);
+            setEditable(true);
         } else {
             try {
+                setEditable(false);
                 Estado estado = new Estado();
                 estado.setEstNome(txtEstado.getText());
                 estado.setEstSigla(txtSigla.getText());
 
                 EstadoController estadoController = new EstadoController(estado);
-                estadoController.create();
+                estadoController.create();                
                 Message.show("Estado criado com sucesso.", Message.MSG_SUCESSO, JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
                 Message.show("Estado não foi incluído.", Message.MSG_FALHA, JOptionPane.ERROR_MESSAGE);
@@ -172,6 +180,11 @@ public class EstadoView extends JPanel {
         }
     }//GEN-LAST:event_btnIncluirActionPerformed
 
+    public void setEditable(boolean b) {
+        txtEstado.setEditable(b);
+        txtSigla.setEditable(b);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
