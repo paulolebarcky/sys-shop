@@ -9,7 +9,6 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import javax.persistence.metamodel.Metamodel;
 import sys.shop.controller.exceptions.NonexistentEntityException;
 
 /**
