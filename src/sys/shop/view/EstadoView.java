@@ -1,14 +1,14 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package sys.shop.view;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import sys.shop.controller.EstadoController;
+import sys.shop.controller.exceptions.NonexistentEntityException;
 import sys.shop.entity.Estado;
 import sys.shop.util.Message;
 
@@ -18,12 +18,17 @@ import sys.shop.util.Message;
  */
 public class EstadoView extends JPanel {
     
-
+    private DefaultTableModel modelo = new DefaultTableModel();
+    private JTable tabela = new JTable();
+    
     /**
      * Creates new form EstadoView
      */
     public EstadoView() {
+        createTable();
         initComponents();
+        jScrollPane1.setViewportView(tabela);
+        
     }
     
     /**
@@ -47,6 +52,7 @@ public class EstadoView extends JPanel {
         txtCodigo = new javax.swing.JTextField();
         txtEstado = new javax.swing.JTextField();
         txtSigla = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
 
         setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro de Estado"));
 
@@ -58,10 +64,22 @@ public class EstadoView extends JPanel {
         });
 
         btnEditar.setText("Editar");
+        btnEditar.setEnabled(false);
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         btnExcluir.setText("Excluir");
+        btnExcluir.setEnabled(false);
 
         btnLocalizar.setText("Localizar");
+        btnLocalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLocalizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
@@ -106,19 +124,23 @@ public class EstadoView extends JPanel {
             .addGroup(panelContentLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(panelContentLayout.createSequentialGroup()
-                        .addComponent(lblCodigo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelContentLayout.createSequentialGroup()
-                        .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblEstado)
-                            .addComponent(lblSigla))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(panelContentLayout.createSequentialGroup()
+                                .addComponent(lblCodigo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelContentLayout.createSequentialGroup()
+                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblEstado)
+                                    .addComponent(lblSigla))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 161, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         panelContentLayout.setVerticalGroup(
             panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,10 +154,11 @@ public class EstadoView extends JPanel {
                     .addComponent(lblEstado)
                     .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblSigla)
                     .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -143,9 +166,9 @@ public class EstadoView extends JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -154,7 +177,7 @@ public class EstadoView extends JPanel {
                 .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -162,10 +185,14 @@ public class EstadoView extends JPanel {
         
         if (btnIncluir.getText().equals(DefaultView.BTN_INCLUIR)) {
             btnIncluir.setText(DefaultView.BTN_GRAVAR);
-            setEditable(true);
+            btnEditar.setText(DefaultView.BTN_CANCELAR);
+            btnEditar.setEnabled(true);
+            btnExcluir.setEnabled(false);
+            btnLocalizar.setEnabled(false);
+            setEditableFields(true);
         } else {
             try {
-                setEditable(false);
+                setEditableFields(false);
                 Estado estado = new Estado();
                 estado.setEstNome(txtEstado.getText());
                 estado.setEstSigla(txtSigla.getText());
@@ -180,9 +207,59 @@ public class EstadoView extends JPanel {
         }
     }//GEN-LAST:event_btnIncluirActionPerformed
 
-    public void setEditable(boolean b) {
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        if (btnEditar.getText().equals(DefaultView.BTN_CANCELAR)) {
+            btnInit();
+            setEditableFields(false);
+        } else {
+            try {
+                setEditableFields(false);
+                Estado estado = new Estado();
+                estado.setEstId(Integer.valueOf(txtCodigo.getText()));
+
+                EstadoController estadoController = new EstadoController(estado);
+                estadoController.remove(estado.getEstId());
+                Message.show("Estado alterado com sucesso.", Message.MSG_SUCESSO, JOptionPane.INFORMATION_MESSAGE);
+            } catch (NonexistentEntityException ex) {
+                Message.show("Estado não foi alterado.", Message.MSG_FALHA, JOptionPane.ERROR_MESSAGE);
+                Logger.getLogger(EstadoView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnLocalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocalizarActionPerformed
+
+    }//GEN-LAST:event_btnLocalizarActionPerformed
+
+    public void setEditableFields(boolean b) {
         txtEstado.setEditable(b);
         txtSigla.setEditable(b);
+    }
+    
+    public void btnInit() {
+        btnIncluir.setText(DefaultView.BTN_INCLUIR);
+        btnEditar.setText(DefaultView.BTN_EDITAR);
+        btnEditar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+        btnLocalizar.setEnabled(true);
+    }
+    
+    private void createTable() {
+        tabela = new JTable(modelo);
+        modelo.addColumn("Código");
+        modelo.addColumn("Estado");
+        modelo.addColumn("Sigla");
+
+        tabela.getColumnModel().getColumn(0).setPreferredWidth(20);
+        tabela.getColumnModel().getColumn(1).setPreferredWidth(100);
+        tabela.getColumnModel().getColumn(2).setPreferredWidth(20);
+        
+        EstadoController estadoController = new EstadoController(new Estado());
+        List<Estado> listEstados = estadoController.findEntities();
+
+        for (Estado estado : listEstados) {
+            modelo.addRow(new Object[]{estado.getEstId().toString(), estado.getEstNome(), estado.getEstSigla()});
+        }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -190,6 +267,7 @@ public class EstadoView extends JPanel {
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnIncluir;
     private javax.swing.JButton btnLocalizar;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblSigla;
