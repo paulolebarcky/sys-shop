@@ -6,6 +6,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import sys.shop.controller.EstadoController;
 import sys.shop.controller.exceptions.NonexistentEntityException;
@@ -18,8 +20,9 @@ import sys.shop.util.Message;
  */
 public class EstadoView extends JPanel {
     
-    private DefaultTableModel modelo = new DefaultTableModel();
-    private JTable tabela = new JTable();
+    private DefaultTableModel model = new DefaultTableModel();
+    private JTable table = new JTable();
+    private int indiceSelect;
     
     /**
      * Creates new form EstadoView
@@ -27,8 +30,7 @@ public class EstadoView extends JPanel {
     public EstadoView() {
         createTable();
         initComponents();
-        jScrollPane1.setViewportView(tabela);
-        
+        jScrollPane1.setViewportView(table);
     }
     
     /**
@@ -64,7 +66,6 @@ public class EstadoView extends JPanel {
         });
 
         btnEditar.setText("Editar");
-        btnEditar.setEnabled(false);
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
@@ -72,7 +73,11 @@ public class EstadoView extends JPanel {
         });
 
         btnExcluir.setText("Excluir");
-        btnExcluir.setEnabled(false);
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btnLocalizar.setText("Localizar");
         btnLocalizar.addActionListener(new java.awt.event.ActionListener() {
@@ -190,15 +195,24 @@ public class EstadoView extends JPanel {
             btnExcluir.setEnabled(false);
             btnLocalizar.setEnabled(false);
             setEditableFields(true);
+            clearFields();
         } else {
             try {
+                btnIncluir.setText(DefaultView.BTN_INCLUIR);
+                btnEditar.setText(DefaultView.BTN_EDITAR);
+                btnEditar.setEnabled(false);
                 setEditableFields(false);
+                
                 Estado estado = new Estado();
                 estado.setEstNome(txtEstado.getText());
                 estado.setEstSigla(txtSigla.getText());
 
                 EstadoController estadoController = new EstadoController(estado);
-                estadoController.create();                
+                Estado estRetorno = estadoController.create();
+                txtCodigo.setText(estRetorno.getEstId().toString());
+                
+                addTableRow(estRetorno, model);               
+                
                 Message.show("Estado criado com sucesso.", Message.MSG_SUCESSO, JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
                 Message.show("Estado não foi incluído.", Message.MSG_FALHA, JOptionPane.ERROR_MESSAGE);
@@ -208,19 +222,27 @@ public class EstadoView extends JPanel {
     }//GEN-LAST:event_btnIncluirActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        if (btnEditar.getText().equals(DefaultView.BTN_CANCELAR)) {
+        if (btnEditar.getText().equals(DefaultView.BTN_EDITAR)) {
+            btnIncluir.setEnabled(false);
+            btnEditar.setText(DefaultView.BTN_EDITAR);
+            btnIncluir.setText(DefaultView.BTN_INCLUIR);
+            setEditableFields(false);
+        } else if (btnEditar.getText().equals(DefaultView.BTN_CANCELAR)) {
             btnInit();
             setEditableFields(false);
-        } else {
+            clearFields();
+        } else if (btnEditar.getText().equals(DefaultView.BTN_GRAVAR)){
             try {
-                setEditableFields(false);
+                setEditableFields(true);
                 Estado estado = new Estado();
                 estado.setEstId(Integer.valueOf(txtCodigo.getText()));
+                estado.setEstNome(txtEstado.getText());
+                estado.setEstSigla(txtSigla.getText());
 
                 EstadoController estadoController = new EstadoController(estado);
-                estadoController.remove(estado.getEstId());
+                estadoController.edit();
                 Message.show("Estado alterado com sucesso.", Message.MSG_SUCESSO, JOptionPane.INFORMATION_MESSAGE);
-            } catch (NonexistentEntityException ex) {
+            } catch (Exception ex) {
                 Message.show("Estado não foi alterado.", Message.MSG_FALHA, JOptionPane.ERROR_MESSAGE);
                 Logger.getLogger(EstadoView.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -231,12 +253,32 @@ public class EstadoView extends JPanel {
 
     }//GEN-LAST:event_btnLocalizarActionPerformed
 
-    public void setEditableFields(boolean b) {
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        try {
+            btnInit();
+            setEditableFields(false);
+            clearFields();
+            Estado estado = new Estado();
+            estado.setEstId(Integer.valueOf(txtCodigo.getText()));
+
+            EstadoController estadoController = new EstadoController(estado);
+            estadoController.remove(estado.getEstId());
+            
+            removeTableRow(model, indiceSelect);
+            
+            Message.show("Estado removido com sucesso.", Message.MSG_SUCESSO, JOptionPane.INFORMATION_MESSAGE);
+        } catch (NonexistentEntityException ex) {
+            Message.show("Estado não foi removido.", Message.MSG_FALHA, JOptionPane.ERROR_MESSAGE);
+            Logger.getLogger(EstadoView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void setEditableFields(boolean b) {
         txtEstado.setEditable(b);
         txtSigla.setEditable(b);
     }
     
-    public void btnInit() {
+    private void btnInit() {
         btnIncluir.setText(DefaultView.BTN_INCLUIR);
         btnEditar.setText(DefaultView.BTN_EDITAR);
         btnEditar.setEnabled(false);
@@ -245,21 +287,75 @@ public class EstadoView extends JPanel {
     }
     
     private void createTable() {
-        tabela = new JTable(modelo);
-        modelo.addColumn("Código");
-        modelo.addColumn("Estado");
-        modelo.addColumn("Sigla");
+        table = new JTable(model);
+        model.addColumn("Código");
+        model.addColumn("Estado");
+        model.addColumn("Sigla");
 
-        tabela.getColumnModel().getColumn(0).setPreferredWidth(20);
-        tabela.getColumnModel().getColumn(1).setPreferredWidth(100);
-        tabela.getColumnModel().getColumn(2).setPreferredWidth(20);
+        table.getColumnModel().getColumn(0).setPreferredWidth(20);
+        table.getColumnModel().getColumn(1).setPreferredWidth(100);
+        table.getColumnModel().getColumn(2).setPreferredWidth(20);
+
+        table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                btnEditar.setEnabled(true);
+                btnExcluir.setEnabled(true);
+                int indice = table.getSelectedRow();
+                indiceSelect = indice;
+
+                if (e.getValueIsAdjusting()) {
+                    txtCodigo.setText(table.getValueAt(indice, 0).toString());
+                    txtEstado.setText(table.getValueAt(indice, 1).toString());
+                    txtSigla.setText(table.getValueAt(indice, 2).toString());
+                }
+
+            }
+        });
         
+        populateTable(model);
+        
+    }
+    
+    /**
+     * Preenche a tabela com os dados recuperados do banco de dados, através
+     * de um findAll() da entidade  Estado.
+     * @param model 
+     */
+    private void populateTable(DefaultTableModel model) {
         EstadoController estadoController = new EstadoController(new Estado());
         List<Estado> listEstados = estadoController.findEntities();
 
         for (Estado estado : listEstados) {
-            modelo.addRow(new Object[]{estado.getEstId().toString(), estado.getEstNome(), estado.getEstSigla()});
+            model.addRow(new Object[]{estado.getEstId().toString(), estado.getEstNome(), estado.getEstSigla()});
         }
+    }
+    
+    /**
+     * Limpam os campos: código, estado e sigla.
+     */
+    private void clearFields() {
+        txtCodigo.setText("");
+        txtEstado.setText("");
+        txtSigla.setText("");
+    }
+    
+    /**
+     * Adiciona na tabela
+     * @param estado
+     * @param model 
+     */
+    private void addTableRow(Estado estado, DefaultTableModel model) {
+        model.addRow(new Object[]{estado.getEstId().toString(), estado.getEstNome(), estado.getEstSigla()});
+    }
+    
+    /**
+     * Remove da tabela
+     * @param model
+     * @param indice 
+     */
+    private void removeTableRow(DefaultTableModel model, int indice) {
+        model.removeRow(indice);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -35,8 +35,7 @@ public abstract class PrincipalController<T> extends PersistenceManager implemen
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(this.t);
-            tt = (T) em.getMetamodel();
-            
+            tt = this.t;
             em.getTransaction().commit();
         } catch (Exception ex) {
             logger.warning(ex.getMessage());
@@ -134,6 +133,22 @@ public abstract class PrincipalController<T> extends PersistenceManager implemen
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
+    }
+    
+    public int getSequence(String sequenceName) {
+        logger.log(Level.INFO, "Sequence :{0}", this.toString());
+        
+        EntityManager em = getEntityManager();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<T> rt = cq.from(this.t.getClass());
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+            
         } finally {
             em.close();
         }
