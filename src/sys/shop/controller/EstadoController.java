@@ -17,9 +17,4 @@ public class EstadoController extends PrincipalController<Estado> {
     public EstadoController(Estado t) {
         super(t);
     }
-    
-    public int getSequence() {
-
-        return 0;
-    }
 }

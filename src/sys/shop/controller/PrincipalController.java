@@ -30,12 +30,10 @@ public abstract class PrincipalController<T> extends PersistenceManager implemen
     public T create() throws Exception{
         logger.log(Level.INFO, "Create :{0}", this.toString());
         EntityManager em = null;
-        T tt;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(this.t);
-            tt = this.t;
             em.getTransaction().commit();
         } catch (Exception ex) {
             logger.warning(ex.getMessage());
@@ -46,10 +44,10 @@ public abstract class PrincipalController<T> extends PersistenceManager implemen
             }
         }
         
-        return tt;
+        return this.t;
     }
 
-    public void edit() throws NonexistentEntityException, Exception {
+    public T edit() throws NonexistentEntityException, Exception {
         logger.log(Level.INFO, "Edit :{0}", this.toString());
         EntityManager em = null;
         try {
@@ -64,6 +62,8 @@ public abstract class PrincipalController<T> extends PersistenceManager implemen
                 em.close();
             }
         }
+        
+        return this.t;
     }
 
     public void remove(Integer id) throws NonexistentEntityException {

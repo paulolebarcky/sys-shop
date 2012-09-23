@@ -10,6 +10,7 @@ public class Message {
     
     public static String MSG_SUCESSO = "Sucesso";
     public static String MSG_FALHA = "Falha";
+    public static String MSG_ATENCAO = "Atenção";
 
     /**
      *
