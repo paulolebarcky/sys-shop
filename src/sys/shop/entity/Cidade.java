@@ -4,9 +4,13 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -26,13 +30,18 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Cidade.findByCidNome", query = "SELECT c FROM Cidade c WHERE c.cidNome = :cidNome")})
 public class Cidade implements Serializable {
     private static final long serialVersionUID = 1L;
+    
     @Id
+    @SequenceGenerator(name = "cidade", sequenceName = "s_cidade", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cidade" )
     @Basic(optional = false)
     @Column(name = "cid_id")
     private Integer cidId;
+    
     @Basic(optional = false)
     @Column(name = "est_id")
     private int estId;
+    
     @Column(name = "cid_nome")
     private String cidNome;
 
