@@ -273,19 +273,9 @@ public class EstadoView extends JPanel {
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
-    private void setEditableFields(boolean b) {
-        txtEstado.setEditable(b);
-        txtSigla.setEditable(b);
-    }
-    
-    private void btnInit() {
-        btnIncluir.setText(DefaultView.BTN_INCLUIR);
-        btnEditar.setText(DefaultView.BTN_EDITAR);
-        btnEditar.setEnabled(false);
-        btnExcluir.setEnabled(false);
-        btnLocalizar.setEnabled(true);
-    }
-    
+    /**
+     * Função principal para criação da tabela de Estado.
+     */
     private void createTable() {
         table = new JTable(model);
         model.addColumn("Código");
@@ -315,6 +305,26 @@ public class EstadoView extends JPanel {
         
         populateTable(model);
         
+    }
+
+    /**
+     * Seta se os campos Estado e Sigla são editáveis de acordo com o parâmetro.
+     * @param b 
+     */
+    private void setEditableFields(boolean b) {
+        txtEstado.setEditable(b);
+        txtSigla.setEditable(b);
+    }
+
+    /**
+     * Retorna o menu de botões ao seu estado inicial.
+     */
+    private void btnInit() {
+        btnIncluir.setText(DefaultView.BTN_INCLUIR);
+        btnEditar.setText(DefaultView.BTN_EDITAR);
+        btnEditar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+        btnLocalizar.setEnabled(true);
     }
     
     /**
