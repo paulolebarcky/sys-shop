@@ -5,9 +5,12 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -34,28 +37,52 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Loja.findByLojDtcadastro", query = "SELECT l FROM Loja l WHERE l.lojDtcadastro = :lojDtcadastro"),
     @NamedQuery(name = "Loja.findByLojDescricao", query = "SELECT l FROM Loja l WHERE l.lojDescricao = :lojDescricao")})
 public class Loja implements Serializable {
+
     private static final long serialVersionUID = 1L;
+    
     @Id
+    @SequenceGenerator(name = "loja", sequenceName = "s_loja", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "loja" )
     @Basic(optional = false)
     @Column(name = "loj_id")
     private Integer lojId;
+    
     @Column(name = "loj_nome")
     private String lojNome;
+    
     @Column(name = "loj_telefone")
     private String lojTelefone;
+    
     @Column(name = "loj_endereco")
     private String lojEndereco;
+    
     @Column(name = "loj_cnpj")
     private String lojCnpj;
+    
     @Column(name = "loj_status")
     private Character lojStatus;
+    
     @Column(name = "loj_celular")
     private String lojCelular;
+    
     @Column(name = "loj_dtcadastro")
     @Temporal(TemporalType.DATE)
     private Date lojDtcadastro;
+    
     @Column(name = "loj_descricao")
     private String lojDescricao;
+    
+    @Column(name = "loj_end_num")
+    private Integer lojEndNum;
+    
+    @Column(name = "loj_bairro")
+    private String lojBairro;
+    
+    @Column(name = "loj_cep")
+    private String lojCep;
+    
+    @Column(name = "cid_id")
+    private Integer cidId;
 
     public Loja() {
     }
@@ -135,7 +162,39 @@ public class Loja implements Serializable {
     public void setLojDescricao(String lojDescricao) {
         this.lojDescricao = lojDescricao;
     }
+    
+    public Integer getLojEndNum() {
+        return lojEndNum;
+    }
 
+    public void setLojEndNum(Integer lojEndNum) {
+        this.lojEndNum = lojEndNum;
+    }
+
+    public String getLojBairro() {
+        return lojBairro;
+    }
+
+    public void setLojBairro(String lojBairro) {
+        this.lojBairro = lojBairro;
+    }
+
+    public String getLojCep() {
+        return lojCep;
+    }
+
+    public void setLojCep(String lojCep) {
+        this.lojCep = lojCep;
+    }
+
+    public Integer getCidId() {
+        return cidId;
+    }
+
+    public void setCidId(Integer cidId) {
+        this.cidId = cidId;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
