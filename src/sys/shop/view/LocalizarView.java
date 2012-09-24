@@ -1,19 +1,25 @@
 package sys.shop.view;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
-import sys.shop.controller.EstadoController;
-import sys.shop.entity.Estado;
+import sys.shop.controller.LojaController;
+import sys.shop.entity.Loja;
 
 /**
  *
  * @author paulo
  */
 public class LocalizarView extends javax.swing.JFrame {
+
+    private DefaultTableModel model = new DefaultTableModel();
+    private JTable table = new JTable();
+    private Map<Integer, Object> map;
     
-    private JTable tabela;
-    private DefaultTableModel modelo = new DefaultTableModel();
 
     /**
      * Creates new form LocalizarView
@@ -21,27 +27,42 @@ public class LocalizarView extends javax.swing.JFrame {
     public LocalizarView() {
         createTable();
         initComponents();
-        jScrollPane1.setViewportView(tabela);
+        jScrollPane1.setViewportView(table);
     }
-    
+
     private void createTable() {
-        tabela = new JTable(modelo);
-        modelo.addColumn("Código");
-        modelo.addColumn("Estado");
-        modelo.addColumn("Sigla");
+        table = new JTable(model);
+        model.addColumn("Código");
+        model.addColumn("Loja");
 
-        tabela.getColumnModel().getColumn(0).setPreferredWidth(20);
-        tabela.getColumnModel().getColumn(1).setPreferredWidth(100);
-        tabela.getColumnModel().getColumn(2).setPreferredWidth(20);
-
-        EstadoController estadoController = new EstadoController(new Estado());
-        List<Estado> listEstados = estadoController.findEntities();
-
-        for (Estado estado : listEstados) {
-            modelo.addRow(new Object[]{estado.getEstId().toString(), estado.getEstNome(), estado.getEstSigla()});
+        table.getColumnModel().getColumn(0).setPreferredWidth(20);
+        table.getColumnModel().getColumn(1).setPreferredWidth(100);
+        
+        LojaController lojaController = new LojaController(new Loja());
+        List<Loja> listLoja = lojaController.findEntities();
+        
+        if (map == null) {
+            map = new HashMap<Integer, Object>();
         }
+
+        for (Loja loja : listLoja) {
+            model.addRow(new Object[]{loja.getLojId().toString(), loja.getLojNome()});
+            map.put(loja.getLojId(), loja);
+        }
+
+        table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                
+                if (e.getValueIsAdjusting()) {
+                    int codLoja =  Integer.valueOf(table.getValueAt(table.getSelectedRow(), 0).toString());
+                    Loja loja = (Loja) map.get(codLoja);
+                    loja.getLojNome();
+                }
+            }
+        });
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,14 +72,13 @@ public class LocalizarView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitleLocalizar = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtCodigoLocalizar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lblTitleLocalizar.setText("Localizar");
+        setTitle("Localizar");
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jLabel1.setText("Código:");
 
@@ -73,32 +93,26 @@ public class LocalizarView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(lblTitleLocalizar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCodigoLocalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCodigoLocalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 270, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitleLocalizar)
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtCodigoLocalizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+                .addGap(34, 34, 34))
         );
 
         pack();
@@ -107,45 +121,9 @@ public class LocalizarView extends javax.swing.JFrame {
     private void txtCodigoLocalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoLocalizarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoLocalizarActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LocalizarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LocalizarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LocalizarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LocalizarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LocalizarView().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblTitleLocalizar;
     private javax.swing.JTextField txtCodigoLocalizar;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,12 +1,17 @@
 package sys.shop.view;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import sys.shop.controller.CidadeController;
 import sys.shop.controller.PrincipalController;
-import sys.shop.entity.Estado;
+import sys.shop.entity.Cidade;
 import sys.shop.util.Message;
 
 /**
@@ -69,11 +74,27 @@ public class DefaultView extends JPanel {
             String string = entry.getKey();
             final int i = string.indexOf("-");
 
-            int codEstado = Integer.valueOf(string.substring(0, i - 1).trim());
-            if (key == codEstado) {
+            int cod = Integer.valueOf(string.substring(0, i - 1).trim());
+            if (key == cod) {
                 return entry.getValue();
             }
         }
         return null;
+    }
+    
+    protected Map getMapComboCidade() {
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        List<Cidade> listCidade;
+        
+        CidadeController cidController = new CidadeController(new Cidade());
+        listCidade = cidController.findEntities();
+
+        for (Cidade cidade : listCidade) {
+            final String elCombo = cidade.getCidId() + " - " + cidade.getCidNome();
+            map.put(elCombo, cidade);
+        }
+
+        return map;
     }
 }
