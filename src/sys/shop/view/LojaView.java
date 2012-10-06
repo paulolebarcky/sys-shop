@@ -90,7 +90,7 @@ public class LojaView extends DefaultView {
         jButton1 = new javax.swing.JButton();
         panelHeader = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jToolBar2 = new javax.swing.JToolBar();
+        menu = new javax.swing.JToolBar();
         btnIncluir = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
@@ -323,7 +323,7 @@ public class LojaView extends DefaultView {
                     .addComponent(lblCnpj)
                     .addComponent(txtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 6, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -402,9 +402,9 @@ public class LojaView extends DefaultView {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        jToolBar2.setFloatable(false);
-        jToolBar2.setRollover(true);
-        jToolBar2.setBorderPainted(false);
+        menu.setFloatable(false);
+        menu.setRollover(true);
+        menu.setBorderPainted(false);
 
         btnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/add.png"))); // NOI18N
         btnIncluir.setText("Incluir");
@@ -414,7 +414,7 @@ public class LojaView extends DefaultView {
                 btnIncluirActionPerformed(evt);
             }
         });
-        jToolBar2.add(btnIncluir);
+        menu.add(btnIncluir);
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/edit.png"))); // NOI18N
         btnEditar.setText("Editar");
@@ -424,7 +424,7 @@ public class LojaView extends DefaultView {
                 btnEditarActionPerformed(evt);
             }
         });
-        jToolBar2.add(btnEditar);
+        menu.add(btnEditar);
 
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/trash.gif"))); // NOI18N
         btnExcluir.setText("Excluir");
@@ -437,7 +437,7 @@ public class LojaView extends DefaultView {
                 btnExcluirActionPerformed(evt);
             }
         });
-        jToolBar2.add(btnExcluir);
+        menu.add(btnExcluir);
 
         btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/save.png"))); // NOI18N
         btnSalvar.setText("Salvar");
@@ -452,7 +452,7 @@ public class LojaView extends DefaultView {
                 btnSalvarActionPerformed(evt);
             }
         });
-        jToolBar2.add(btnSalvar);
+        menu.add(btnSalvar);
 
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/cancel.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -467,7 +467,7 @@ public class LojaView extends DefaultView {
                 btnCancelarActionPerformed(evt);
             }
         });
-        jToolBar2.add(btnCancelar);
+        menu.add(btnCancelar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -477,7 +477,7 @@ public class LojaView extends DefaultView {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelLocalizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -488,7 +488,7 @@ public class LojaView extends DefaultView {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelLocalizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -773,7 +773,6 @@ public class LojaView extends DefaultView {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JToolBar jToolBar2;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCel;
     private javax.swing.JLabel lblCidade;
@@ -784,6 +783,7 @@ public class LojaView extends DefaultView {
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTel;
+    private javax.swing.JToolBar menu;
     private javax.swing.JPanel panelContent;
     private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelLocalizar;

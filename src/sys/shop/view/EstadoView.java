@@ -42,11 +42,8 @@ public class EstadoView extends DefaultView {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelMenu = new javax.swing.JPanel();
-        btnIncluir = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
-        btnExcluir = new javax.swing.JButton();
-        btnLocalizar = new javax.swing.JButton();
+        panelHeader = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         panelContent = new javax.swing.JPanel();
         lblCodigo = new javax.swing.JLabel();
         lblEstado = new javax.swing.JLabel();
@@ -55,59 +52,34 @@ public class EstadoView extends DefaultView {
         txtEstado = new javax.swing.JTextField();
         txtSigla = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
+        menu = new javax.swing.JToolBar();
+        btnIncluir = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro de Estado"));
+        panelHeader.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnIncluir.setText("Incluir");
-        btnIncluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIncluirActionPerformed(evt);
-            }
-        });
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/shop.png"))); // NOI18N
+        jLabel4.setText("Cadastro de Estado");
 
-        btnEditar.setText("Editar");
-        btnEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarActionPerformed(evt);
-            }
-        });
-
-        btnExcluir.setText("Excluir");
-        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirActionPerformed(evt);
-            }
-        });
-
-        btnLocalizar.setText("Localizar");
-        btnLocalizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLocalizarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
-        panelMenu.setLayout(panelMenuLayout);
-        panelMenuLayout.setHorizontalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelHeaderLayout = new javax.swing.GroupLayout(panelHeader);
+        panelHeader.setLayout(panelHeaderLayout);
+        panelHeaderLayout.setHorizontalGroup(
+            panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelHeaderLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnIncluir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEditar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnExcluir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnLocalizar)
+                .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        panelMenuLayout.setVerticalGroup(
-            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(btnIncluir)
-                .addComponent(btnEditar)
-                .addComponent(btnExcluir)
-                .addComponent(btnLocalizar))
+        panelHeaderLayout.setVerticalGroup(
+            panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelHeaderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         lblCodigo.setText("Código:");
@@ -129,28 +101,26 @@ public class EstadoView extends DefaultView {
             .addGroup(panelContentLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
                     .addGroup(panelContentLayout.createSequentialGroup()
+                        .addComponent(lblCodigo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelContentLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(panelContentLayout.createSequentialGroup()
+                        .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblEstado)
+                            .addComponent(lblSigla))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelContentLayout.createSequentialGroup()
-                                .addComponent(lblCodigo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelContentLayout.createSequentialGroup()
-                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblEstado)
-                                    .addComponent(lblSigla))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 161, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
         panelContentLayout.setVerticalGroup(
             panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelContentLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(16, 16, 16)
                 .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigo)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -162,97 +132,151 @@ public class EstadoView extends DefaultView {
                 .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblSigla)
                     .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        menu.setFloatable(false);
+        menu.setRollover(true);
+        menu.setBorderPainted(false);
+
+        btnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/add.png"))); // NOI18N
+        btnIncluir.setText("Incluir");
+        btnIncluir.setBorderPainted(false);
+        btnIncluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIncluirActionPerformed(evt);
+            }
+        });
+        menu.add(btnIncluir);
+
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/edit.png"))); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.setBorderPainted(false);
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
+        menu.add(btnEditar);
+
+        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/trash.gif"))); // NOI18N
+        btnExcluir.setText("Excluir");
+        btnExcluir.setBorderPainted(false);
+        btnExcluir.setMaximumSize(new java.awt.Dimension(82, 36));
+        btnExcluir.setMinimumSize(new java.awt.Dimension(82, 36));
+        btnExcluir.setPreferredSize(new java.awt.Dimension(82, 36));
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+        menu.add(btnExcluir);
+
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/save.png"))); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        btnSalvar.setBorderPainted(false);
+        btnSalvar.setEnabled(false);
+        btnSalvar.setMaximumSize(new java.awt.Dimension(82, 36));
+        btnSalvar.setMinimumSize(new java.awt.Dimension(82, 36));
+        btnSalvar.setPreferredSize(new java.awt.Dimension(82, 36));
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
+        menu.add(btnSalvar);
+
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/cancel.png"))); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        btnCancelar.setBorderPainted(false);
+        btnCancelar.setEnabled(false);
+        btnCancelar.setMaximumSize(new java.awt.Dimension(98, 36));
+        btnCancelar.setMinimumSize(new java.awt.Dimension(98, 36));
+        btnCancelar.setPreferredSize(new java.awt.Dimension(98, 36));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        menu.add(btnCancelar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirActionPerformed
-        
-        // Incluir
-        if (btnIncluir.getText().equals(BTN_INCLUIR)) {
-            btnIncluir.setActionCommand(FCN_BTN_ADICIONAR);
-            btnIncluir.setText(BTN_SALVAR);
-            btnEditar.setText(BTN_CANCELAR);
-            
-            btnExcluir.setEnabled(false);
-            btnLocalizar.setEnabled(false);
-            
-            setEditableFields(true);
-            clearFields();
-            
-            txtEstado.requestFocus(true);
-            
-        } else {
-            // Incluir novo registro
-            if (btnIncluir.getActionCommand().equals(FCN_BTN_ADICIONAR)) {
-                createEstado();
-            } else { // Atualiza registro existente
-                updateEstado();
-            }
-        }
+        btnSalvar.setEnabled(true);
+        btnCancelar.setEnabled(true);
+        btnSalvar.setActionCommand(FCN_BTN_ADICIONAR);
+
+        btnIncluir.setEnabled(false);
+        btnEditar.setEnabled(false);
+
+        btnExcluir.setEnabled(false);
+
+        setEditableFields(true);
+        clearFields();
+
+        txtEstado.requestFocus(true);
     }//GEN-LAST:event_btnIncluirActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        if (btnEditar.getText().equals(BTN_EDITAR)) {
-            if(!hasSelectedItem()) {
-                return;
-            }               
-            
-            btnEditar.setText(BTN_CANCELAR);
-            btnIncluir.setText(BTN_SALVAR);
-            btnIncluir.setActionCommand(FCN_BTN_ATUALIZAR);
-            
-            btnExcluir.setEnabled(false);
-            btnLocalizar.setEnabled(false);
 
-            setEditableFields(true);
-        } else if (btnEditar.getText().equals(BTN_CANCELAR)) {
-            btnInit();
-            clearFields();
-            setEditableFields(false);
+        if(!hasSelectedItem()) {
+            return;
         }
+
+        btnSalvar.setEnabled(true);
+        btnCancelar.setEnabled(true);
+        btnSalvar.setActionCommand(FCN_BTN_ATUALIZAR);
+
+        btnIncluir.setEnabled(false);
+        btnEditar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+
+        setEditableFields(true);
     }//GEN-LAST:event_btnEditarActionPerformed
-
-    private void btnLocalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocalizarActionPerformed
-
-    }//GEN-LAST:event_btnLocalizarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         if(!hasSelectedItem()) {
             return;
         }
-        
+
         if(hasSure("Deseja excluir o Estado " + txtEstado.getText() + "?")) {
             return;
         }
-        
+
         try {
             Estado estado = new Estado();
             estado.setEstId(Integer.valueOf(txtCodigo.getText()));
 
             EstadoController estadoController = new EstadoController(estado);
             estadoController.remove(estado.getEstId());
-            
+
             removeTableRow(model, indiceSelect);
             
             Message.show("Estado removido com sucesso.", Message.MSG_SUCESSO, JOptionPane.INFORMATION_MESSAGE);
@@ -264,6 +288,22 @@ public class EstadoView extends DefaultView {
             setEditableFields(false);
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        if (btnSalvar.getActionCommand().equals(FCN_BTN_ADICIONAR)) {
+            createEstado();
+        } else { // Atualiza registro existente
+            updateEstado();
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        btnInit();
+        clearFields();
+        setEditableFields(false);
+        btnSalvar.setEnabled(false);
+        btnCancelar.setEnabled(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void createEstado() {
         try {
@@ -373,7 +413,6 @@ public class EstadoView extends DefaultView {
         btnIncluir.setEnabled(true);
         btnEditar.setEnabled(true);
         btnExcluir.setEnabled(true);
-        btnLocalizar.setEnabled(true);
     }
     
     /**
@@ -426,16 +465,19 @@ public class EstadoView extends DefaultView {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnIncluir;
-    private javax.swing.JButton btnLocalizar;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblEstado;
     private javax.swing.JLabel lblSigla;
+    private javax.swing.JToolBar menu;
     private javax.swing.JPanel panelContent;
-    private javax.swing.JPanel panelMenu;
+    private javax.swing.JPanel panelHeader;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtSigla;
