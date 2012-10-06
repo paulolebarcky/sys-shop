@@ -1,19 +1,13 @@
 package sys.shop.view;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import sys.shop.controller.CidadeController;
 import sys.shop.controller.LojaController;
 import sys.shop.controller.exceptions.NonexistentEntityException;
-import sys.shop.entity.Cidade;
 import sys.shop.entity.Loja;
 import sys.shop.util.Message;
 
@@ -25,6 +19,7 @@ public class LojaView extends DefaultView {
     
     private DefaultComboBoxModel modelCombo = new DefaultComboBoxModel();
     private Map<String, Object> map;
+    private static Loja LOJA;
     
     /**
      * Creates new form LojaView
@@ -34,7 +29,7 @@ public class LojaView extends DefaultView {
         initComponents();
         cbxCidade.setModel(modelCombo);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,22 +180,20 @@ public class LojaView extends DefaultView {
                 .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelContentLayout.createSequentialGroup()
                         .addComponent(lblCodigo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(4, 4, 4)
                         .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111)
+                        .addGap(119, 119, 119)
                         .addComponent(lblStatus)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ckbStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
                     .addGroup(panelContentLayout.createSequentialGroup()
                         .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(panelContentLayout.createSequentialGroup()
-                                .addComponent(lblCnpj)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(49, 49, 49)
                                 .addComponent(txtCnpj))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelContentLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(4, 4, 4)
-                                .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblCidade)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -211,7 +204,9 @@ public class LojaView extends DefaultView {
                                 .addComponent(lblNome)
                                 .addComponent(lblTel))
                             .addComponent(lblEndereco, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblEndNumero, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(lblEndNumero, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblCnpj, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(5, 5, 5)
                         .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelContentLayout.createSequentialGroup()
@@ -368,7 +363,9 @@ public class LojaView extends DefaultView {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnLocalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocalizarActionPerformed
-        new LocalizarView().setVisible(true);
+        LocalizarView localizarView = new LocalizarView();
+        localizarView.setVisible(true);
+        
     }//GEN-LAST:event_btnLocalizarActionPerformed
 
     private void txtCnpjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCnpjActionPerformed
@@ -500,6 +497,14 @@ public class LojaView extends DefaultView {
         loja.setCidId(getSelectedItemCombo(cbxCidade));
         
         return loja;
+    }
+    
+    public static Loja getLoja() {
+        return LOJA;
+    }
+
+    public static void setLoja(Loja loja) {
+        LojaView.LOJA = loja;
     }
 
     

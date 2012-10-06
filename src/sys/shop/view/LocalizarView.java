@@ -57,7 +57,7 @@ public class LocalizarView extends javax.swing.JFrame {
                 if (e.getValueIsAdjusting()) {
                     int codLoja =  Integer.valueOf(table.getValueAt(table.getSelectedRow(), 0).toString());
                     Loja loja = (Loja) map.get(codLoja);
-                    loja.getLojNome();
+                    LojaView.setLoja(loja);
                 }
             }
         });
