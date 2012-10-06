@@ -87,12 +87,14 @@ public class LojaView extends DefaultView {
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        panelHeader = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jToolBar2 = new javax.swing.JToolBar();
         btnIncluir = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -373,24 +375,24 @@ public class LojaView extends DefaultView {
                 .addContainerGap())
         );
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        panelHeader.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/shop.png"))); // NOI18N
         jLabel4.setText("Cadastro de Loja");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelHeaderLayout = new javax.swing.GroupLayout(panelHeader);
+        panelHeader.setLayout(panelHeaderLayout);
+        panelHeaderLayout.setHorizontalGroup(
+            panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelHeaderLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        panelHeaderLayout.setVerticalGroup(
+            panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelHeaderLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -420,7 +422,7 @@ public class LojaView extends DefaultView {
         });
         jToolBar2.add(btnEditar);
 
-        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/remove.png"))); // NOI18N
+        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/trash.gif"))); // NOI18N
         btnExcluir.setText("Excluir");
         btnExcluir.setBorderPainted(false);
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -430,11 +432,24 @@ public class LojaView extends DefaultView {
         });
         jToolBar2.add(btnExcluir);
 
+        btnSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/save.png"))); // NOI18N
+        btnSalvar.setText("Salvar");
+        btnSalvar.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        btnSalvar.setBorderPainted(false);
+        jToolBar2.add(btnSalvar);
+
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/cancel.png"))); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        btnCancelar.setBorderPainted(false);
+        btnCancelar.setFocusable(false);
+        jToolBar2.add(btnCancelar);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -447,7 +462,7 @@ public class LojaView extends DefaultView {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -707,9 +722,11 @@ public class LojaView extends DefaultView {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnIncluir;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox cbxCidade;
     private javax.swing.JCheckBox ckbStatus;
     private javax.swing.JButton jButton1;
@@ -720,7 +737,6 @@ public class LojaView extends DefaultView {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -741,6 +757,7 @@ public class LojaView extends DefaultView {
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTel;
     private javax.swing.JPanel panelContent;
+    private javax.swing.JPanel panelHeader;
     private javax.swing.JPanel panelLocalizar;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCel;

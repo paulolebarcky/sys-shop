@@ -4,6 +4,11 @@
  */
 package sys.shop.view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 /**
  *
  * @author paulo
@@ -14,7 +19,18 @@ public class PrincipalView extends javax.swing.JFrame {
      * Creates new form PrincipalView
      */
     public PrincipalView() {
-        initComponents();
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+            initComponents();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(PrincipalView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     private void setCustomizeTitle(String title) {
@@ -53,12 +69,13 @@ public class PrincipalView extends javax.swing.JFrame {
         aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ShopSys");
+        setTitle("SysShop");
         setBounds(new java.awt.Rectangle(30, 30, 30, 30));
+        setExtendedState(MAXIMIZED_BOTH);
         setFocusCycleRoot(false);
         setPreferredSize(new java.awt.Dimension(800, 600));
 
-        fileMenu.setMnemonic('f');
+        fileMenu.setMnemonic('C');
         fileMenu.setText("Cadastro");
 
         jMenuItem4.setText("Estado");
@@ -148,7 +165,7 @@ public class PrincipalView extends javax.swing.JFrame {
         menuBar.add(fileMenu);
 
         editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
+        editMenu.setText("Venda");
 
         cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Cut");
