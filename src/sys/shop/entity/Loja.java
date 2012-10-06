@@ -40,6 +40,9 @@ public class Loja implements Serializable {
 
     private static final long serialVersionUID = 1L;
     
+    public static final Character LOJ_STATUS_ATIVA = '1';
+    public static final Character LOJ_STATUS_INATIVA = '0';
+    
     @Id
     @SequenceGenerator(name = "loja", sequenceName = "s_loja", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "loja" )
@@ -130,9 +133,9 @@ public class Loja implements Serializable {
     public void setLojCnpj(String lojCnpj) {
         this.lojCnpj = lojCnpj;
     }
-
+    
     public Character getLojStatus() {
-        return lojStatus;
+        return lojStatus == null || lojStatus == 0 ? LOJ_STATUS_INATIVA : LOJ_STATUS_ATIVA;
     }
 
     public void setLojStatus(Character lojStatus) {
@@ -193,6 +196,10 @@ public class Loja implements Serializable {
 
     public void setCidId(Integer cidId) {
         this.cidId = cidId;
+    }
+    
+    public boolean isAtiva() {
+        return lojStatus == null || lojStatus == 0 ? false : true;
     }
     
     @Override

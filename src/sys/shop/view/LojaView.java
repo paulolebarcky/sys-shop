@@ -1,5 +1,9 @@
 package sys.shop.view;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 import sys.shop.controller.LojaController;
 import sys.shop.controller.exceptions.NonexistentEntityException;
 import sys.shop.entity.Loja;
+import sys.shop.util.DateUtil;
 import sys.shop.util.Message;
 
 /**
@@ -83,6 +88,8 @@ public class LojaView extends DefaultView {
         tabDescricao = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescricao = new javax.swing.JTextArea();
+        lblDtCadastro = new javax.swing.JLabel();
+        lblConteudoDtCadastro = new javax.swing.JLabel();
         panelLocalizar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jLabel2 = new javax.swing.JLabel();
@@ -165,7 +172,7 @@ public class LojaView extends DefaultView {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCel)
                     .addComponent(txtCel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(330, Short.MAX_VALUE))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout tabContatoLayout = new javax.swing.GroupLayout(tabContato);
@@ -277,7 +284,7 @@ public class LojaView extends DefaultView {
             .addGroup(tabEnderecoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(298, Short.MAX_VALUE))
+                .addContainerGap(296, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Endereço", tabEndereco);
@@ -300,10 +307,12 @@ public class LojaView extends DefaultView {
             .addGroup(tabDescricaoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(271, Short.MAX_VALUE))
+                .addContainerGap(269, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Descrição", tabDescricao);
+
+        lblDtCadastro.setText("Dt. Cadastro:");
 
         javax.swing.GroupLayout panelContentLayout = new javax.swing.GroupLayout(panelContent);
         panelContent.setLayout(panelContentLayout);
@@ -320,9 +329,17 @@ public class LojaView extends DefaultView {
                             .addComponent(lblCnpj, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtNome)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelContentLayout.createSequentialGroup()
+                                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelContentLayout.createSequentialGroup()
+                                        .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(49, 49, 49)
+                                        .addComponent(lblDtCadastro)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblConteudoDtCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblStatus)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -337,7 +354,9 @@ public class LojaView extends DefaultView {
                     .addComponent(lblCodigo)
                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblStatus)
-                    .addComponent(ckbStatus))
+                    .addComponent(ckbStatus)
+                    .addComponent(lblDtCadastro)
+                    .addComponent(lblConteudoDtCadastro))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNome)
@@ -347,7 +366,7 @@ public class LojaView extends DefaultView {
                     .addComponent(lblCnpj)
                     .addComponent(txtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
         );
 
@@ -586,7 +605,7 @@ public class LojaView extends DefaultView {
     }//GEN-LAST:event_txtCnpjActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        if (btnIncluir.getActionCommand().equals(FCN_BTN_ADICIONAR)) {
+        if (btnSalvar.getActionCommand().equals(FCN_BTN_ADICIONAR)) {
             createLoja();
         } else { // Atualiza registro existente
             updateLoja();
@@ -755,6 +774,8 @@ public class LojaView extends DefaultView {
         loja.setLojCep(txtCep.getText());
         loja.setLojTelefone(txtTel.getText());
         loja.setCidId(getSelectedItemCombo(cbxCidade));
+        loja.setLojDtcadastro(new Date());
+        loja.setLojDescricao(txtDescricao.getText());
         
         return loja;
     }
@@ -770,6 +791,9 @@ public class LojaView extends DefaultView {
         txtEndNumero.setText(endNumStr);
         txtEndereco.setText(loja.getLojEndereco());
         txtCel.setText(loja.getLojCelular());
+        ckbStatus.setSelected(loja.isAtiva());
+        txtDescricao.setText(loja.getLojDescricao());
+        lblConteudoDtCadastro.setText(DateUtil.formatDate(loja.getLojDtcadastro()));
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -800,6 +824,8 @@ public class LojaView extends DefaultView {
     private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblCnpj;
     private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblConteudoDtCadastro;
+    private javax.swing.JLabel lblDtCadastro;
     private javax.swing.JLabel lblEndNumero;
     private javax.swing.JLabel lblEndereco;
     private javax.swing.JLabel lblNome;
