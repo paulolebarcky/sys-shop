@@ -1,11 +1,9 @@
 package sys.shop.view;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -26,7 +24,7 @@ public class DefaultView extends JPanel {
     public static String BTN_EDITAR = "Editar";
     public static String BTN_EXCLUIR = "Excluir";
     public static String BTN_LOCALIZAR = "Localizar";
-    public static String BTN_GRAVAR = "Gravar";
+    public static String BTN_SALVAR = "Salvar";
     public static String BTN_CANCELAR = "Cancelar";
     public static String FCN_BTN_ATUALIZAR = "atualizar";
     public static String FCN_BTN_ADICIONAR = "adicionar";

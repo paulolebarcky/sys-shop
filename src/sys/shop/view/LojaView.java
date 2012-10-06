@@ -80,6 +80,7 @@ public class LojaView extends DefaultView {
         txtCep = new javax.swing.JTextField();
         lblCidade = new javax.swing.JLabel();
         cbxCidade = new javax.swing.JComboBox();
+        jSeparator1 = new javax.swing.JSeparator();
         panelLocalizar = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jLabel2 = new javax.swing.JLabel();
@@ -162,7 +163,7 @@ public class LojaView extends DefaultView {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCel)
                     .addComponent(txtCel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(357, Short.MAX_VALUE))
+                .addContainerGap(330, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -274,7 +275,7 @@ public class LojaView extends DefaultView {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Endereço", jPanel3);
@@ -283,10 +284,10 @@ public class LojaView extends DefaultView {
         panelContent.setLayout(panelContentLayout);
         panelContentLayout.setHorizontalGroup(
             panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelContentLayout.createSequentialGroup()
+            .addGroup(panelContentLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1)
                     .addGroup(panelContentLayout.createSequentialGroup()
                         .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNome, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -300,7 +301,8 @@ public class LojaView extends DefaultView {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblStatus)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ckbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ckbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator1))
                 .addContainerGap())
         );
         panelContentLayout.setVerticalGroup(
@@ -320,8 +322,10 @@ public class LojaView extends DefaultView {
                 .addGroup(panelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCnpj)
                     .addComponent(txtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -388,14 +392,14 @@ public class LojaView extends DefaultView {
             .addGroup(panelHeaderLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(831, Short.MAX_VALUE))
         );
         panelHeaderLayout.setVerticalGroup(
             panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHeaderLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jToolBar2.setFloatable(false);
@@ -425,6 +429,9 @@ public class LojaView extends DefaultView {
         btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/trash.gif"))); // NOI18N
         btnExcluir.setText("Excluir");
         btnExcluir.setBorderPainted(false);
+        btnExcluir.setMaximumSize(new java.awt.Dimension(82, 36));
+        btnExcluir.setMinimumSize(new java.awt.Dimension(82, 36));
+        btnExcluir.setPreferredSize(new java.awt.Dimension(82, 36));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
@@ -436,13 +443,30 @@ public class LojaView extends DefaultView {
         btnSalvar.setText("Salvar");
         btnSalvar.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         btnSalvar.setBorderPainted(false);
+        btnSalvar.setEnabled(false);
+        btnSalvar.setMaximumSize(new java.awt.Dimension(82, 36));
+        btnSalvar.setMinimumSize(new java.awt.Dimension(82, 36));
+        btnSalvar.setPreferredSize(new java.awt.Dimension(82, 36));
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
         jToolBar2.add(btnSalvar);
 
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sys/shop/view/img/cancel.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         btnCancelar.setBorderPainted(false);
-        btnCancelar.setFocusable(false);
+        btnCancelar.setEnabled(false);
+        btnCancelar.setMaximumSize(new java.awt.Dimension(98, 36));
+        btnCancelar.setMinimumSize(new java.awt.Dimension(98, 36));
+        btnCancelar.setPreferredSize(new java.awt.Dimension(98, 36));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
         jToolBar2.add(btnCancelar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -463,7 +487,7 @@ public class LojaView extends DefaultView {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -474,50 +498,38 @@ public class LojaView extends DefaultView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncluirActionPerformed
+        btnSalvar.setEnabled(true);
+        btnCancelar.setEnabled(true);
+        btnSalvar.setActionCommand(FCN_BTN_ADICIONAR);
 
-        // Incluir
-        if (btnIncluir.getText().equals(BTN_INCLUIR)) {
-            btnIncluir.setActionCommand(FCN_BTN_ADICIONAR);
-            btnIncluir.setText(BTN_GRAVAR);
-            btnEditar.setText(BTN_CANCELAR);
+        btnIncluir.setEnabled(false);
+        btnEditar.setEnabled(false);
 
-            cbxCidade.setModel(modelCombo);
+        cbxCidade.setModel(modelCombo);
 
-            btnExcluir.setEnabled(false);
+        btnExcluir.setEnabled(false);
 
-            setEditableFields(true);
-            clearFields();
+        setEditableFields(true);
+        clearFields();
 
-            txtTel.requestFocus(true);
-
-        } else {
-            // Incluir novo registro
-            if (btnIncluir.getActionCommand().equals(FCN_BTN_ADICIONAR)) {
-                createLoja();
-            } else { // Atualiza registro existente
-                updateLoja();
-            }
-        }
+        txtNome.requestFocus(true);
     }//GEN-LAST:event_btnIncluirActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        if (btnEditar.getText().equals(BTN_EDITAR)) {
-            if(!hasSelectedItem()) {
-                return;
-            }
 
-            btnEditar.setText(BTN_CANCELAR);
-            btnIncluir.setText(BTN_GRAVAR);
-            btnIncluir.setActionCommand(FCN_BTN_ATUALIZAR);
-
-            btnExcluir.setEnabled(false);
-
-            setEditableFields(true);
-        } else if (btnEditar.getText().equals(BTN_CANCELAR)) {
-            btnInit();
-            clearFields();
-            setEditableFields(false);
+        if(!hasSelectedItem()) {
+            return;
         }
+        
+        btnSalvar.setEnabled(true);
+        btnCancelar.setEnabled(true);
+        btnSalvar.setActionCommand(FCN_BTN_ATUALIZAR);
+
+        btnIncluir.setEnabled(false);
+        btnEditar.setEnabled(false);
+        btnExcluir.setEnabled(false);
+
+        setEditableFields(true);
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
@@ -550,6 +562,21 @@ public class LojaView extends DefaultView {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCnpjActionPerformed
 
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        if (btnIncluir.getActionCommand().equals(FCN_BTN_ADICIONAR)) {
+            createLoja();
+        } else { // Atualiza registro existente
+            updateLoja();
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        btnInit();
+        clearFields();
+        setEditableFields(false);
+        btnSalvar.setEnabled(false);
+        btnCancelar.setEnabled(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
     
     private void createComboCidade() {
         if (mapCidade == null) {
@@ -742,6 +769,7 @@ public class LojaView extends DefaultView {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

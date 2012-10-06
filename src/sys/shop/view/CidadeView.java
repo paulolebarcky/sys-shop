@@ -197,7 +197,7 @@ public class CidadeView extends DefaultView {
         // Incluir
         if (btnIncluir.getText().equals(BTN_INCLUIR)) {
             btnIncluir.setActionCommand(FCN_BTN_ADICIONAR);
-            btnIncluir.setText(BTN_GRAVAR);
+            btnIncluir.setText(BTN_SALVAR);
             btnEditar.setText(BTN_CANCELAR);
             
             cbxEstado.setModel(modelCombo);
@@ -227,7 +227,7 @@ public class CidadeView extends DefaultView {
             }
 
             btnEditar.setText(BTN_CANCELAR);
-            btnIncluir.setText(BTN_GRAVAR);
+            btnIncluir.setText(BTN_SALVAR);
             btnIncluir.setActionCommand(FCN_BTN_ATUALIZAR);
 
             btnExcluir.setEnabled(false);
