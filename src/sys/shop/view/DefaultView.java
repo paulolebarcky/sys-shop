@@ -18,7 +18,7 @@ import sys.shop.util.Message;
  */
 public class DefaultView extends JPanel {
     
-    public static final Logger logger = Logger.getLogger(PrincipalController.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(PrincipalController.class.getName());
 
     public static String BTN_INCLUIR = "Incluir";
     public static String BTN_EDITAR = "Editar";
@@ -55,7 +55,7 @@ public class DefaultView extends JPanel {
         if (i < 1) {
             String msg = "Ocorreu um erro para recuperar o índice do item selecionado no combo.";
             Message.show(msg, Message.MSG_FALHA, JOptionPane.ERROR_MESSAGE);
-            logger.info(msg);
+            LOGGER.info(msg);
         }
         return Integer.valueOf(selectedItem.substring(0, i - 1).trim());
     }

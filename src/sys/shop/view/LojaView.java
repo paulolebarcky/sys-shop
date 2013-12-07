@@ -1,9 +1,6 @@
 package sys.shop.view;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +24,8 @@ import sys.shop.util.Message;
  * @author paulo
  */
 public class LojaView extends DefaultView {
+    
+    private static final Logger LOGGER = Logger.getLogger(LojaView.class.getName());
     
     private DefaultComboBoxModel modelCombo = new DefaultComboBoxModel();
     private Map<String, Object> mapCidade;
@@ -768,6 +767,15 @@ public class LojaView extends DefaultView {
         loja.setLojNome(txtNome.getText());
         loja.setLojStatus(isSelected(ckbStatus));
         loja.setLojEndereco(txtEndereco.getText());
+        
+        if (!txtEndNumero.getText().isEmpty()) {
+            try {
+                loja.setLojEndNum(Integer.parseInt(txtEndNumero.getText()));
+            } catch (Exception e) {
+                LOGGER.severe(e.getMessage());
+            }
+        }
+        
         loja.setLojBairro(txtBairro.getText());
         loja.setLojCelular(txtCel.getText());
         loja.setLojCnpj(txtCnpj.getText());
