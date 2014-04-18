@@ -317,7 +317,7 @@ public class EstadoView extends DefaultView {
             Estado estRetorno = estadoController.create();
             txtCodigo.setText(estRetorno.getEstId().toString());
 
-            addTableRow(estRetorno, model);
+            addTableRow(convertObjectToArrayObject(estRetorno), model);
 
             btnInit();
             setEditableFields(false);
@@ -342,7 +342,7 @@ public class EstadoView extends DefaultView {
             btnInit();
             setEditableFields(false);
             
-            updateTableRow(model, indiceSelect, estRetorno);
+            updateTableRow(model, indiceSelect, convertObjectToArrayObject(estRetorno));
 
             Message.show("Estado alterado com sucesso.", Message.MSG_SUCESSO, JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception ex) {
@@ -439,30 +439,8 @@ public class EstadoView extends DefaultView {
         txtSigla.setText("");
     }
     
-    /**
-     * Adiciona na tabela
-     * @param estado
-     * @param model 
-     */
-    private void addTableRow(Estado estado, DefaultTableModel model) {
-        model.addRow(new Object[]{estado.getEstId().toString(), estado.getEstNome(), estado.getEstSigla()});
-    }
-    
-    /**
-     * Remove da tabela
-     * @param model
-     * @param indice 
-     */
-    private void removeTableRow(DefaultTableModel model, int indice) {
-        model.removeRow(indice);
-    }
-    
-    /**
-     * Atualiza linha da tabela.
-     */
-    private void updateTableRow(DefaultTableModel model, int indice, Estado estado) {
-        model.removeRow(indice);
-        model.insertRow(indice, new Object[]{estado.getEstId().toString(), estado.getEstNome(), estado.getEstSigla()});
+    private Object[] convertObjectToArrayObject(Estado estado) {
+        return new Object[]{new Object[]{estado.getEstId().toString(), estado.getEstNome(), estado.getEstSigla()}};
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import sys.shop.controller.CidadeController;
 import sys.shop.controller.PrincipalController;
 import sys.shop.entity.Cidade;
@@ -17,9 +18,8 @@ import sys.shop.util.Message;
  * @author paulo
  */
 public class DefaultView extends JPanel {
-    
-    private static final Logger LOGGER = Logger.getLogger(PrincipalController.class.getName());
 
+    private static final Logger LOGGER = Logger.getLogger(PrincipalController.class.getName());
     public static String BTN_INCLUIR = "Incluir";
     public static String BTN_EDITAR = "Editar";
     public static String BTN_EXCLUIR = "Excluir";
@@ -30,8 +30,7 @@ public class DefaultView extends JPanel {
     public static String FCN_BTN_ADICIONAR = "adicionar";
 
     /**
-     * Caixa de dialogo que representa uma questão a ser respondida
-     * (Sim ou Não)
+     * Caixa de dialogo que representa uma questão a ser respondida (Sim ou Não)
      *
      * @param question
      * @return boolean
@@ -42,11 +41,12 @@ public class DefaultView extends JPanel {
                 JOptionPane.YES_NO_OPTION);
         return n == 0 ? false : true;
     }
-    
+
     /**
      * Recupera o código do item selecionado no combo.
+     *
      * @param combo
-     * @return 
+     * @return
      */
     protected int getSelectedItemCombo(JComboBox combo) {
         final String selectedItem = (String) combo.getModel().getSelectedItem();
@@ -59,15 +59,16 @@ public class DefaultView extends JPanel {
         }
         return Integer.valueOf(selectedItem.substring(0, i - 1).trim());
     }
-    
+
     /**
      * Recupera o objeto de dentro de um mapa. Utilizado para tratar combo.
+     *
      * @param map
      * @param key
-     * @return 
+     * @return
      */
     public Object getKeyValueMap(Map<String, Object> map, int key) {
-        
+
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             String string = entry.getKey();
             final int i = string.indexOf("-");
@@ -79,12 +80,12 @@ public class DefaultView extends JPanel {
         }
         return null;
     }
-    
+
     protected Map getMapComboCidade() {
 
         Map<String, Object> map = new HashMap<String, Object>();
         List<Cidade> listCidade;
-        
+
         CidadeController cidController = new CidadeController(new Cidade());
         listCidade = cidController.findEntities();
 
@@ -94,5 +95,30 @@ public class DefaultView extends JPanel {
         }
 
         return map;
+    }
+
+    /**
+     * Adiciona na tabela
+     */
+    protected void addTableRow(Object[] objects, DefaultTableModel model) {
+        model.addRow(objects);
+    }
+
+    /**
+     * Remove da tabela
+     *
+     * @param model
+     * @param indice
+     */
+    protected void removeTableRow(DefaultTableModel model, int indice) {
+        model.removeRow(indice);
+    }
+
+    /**
+     * Atualiza linha da tabela.
+     */
+    protected void updateTableRow(DefaultTableModel model, int indice, Object[] objects) {
+        model.removeRow(indice);
+        model.insertRow(indice, objects);
     }
 }

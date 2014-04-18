@@ -32,6 +32,7 @@ public class LojaView extends DefaultView {
     private DefaultTableModel model = new DefaultTableModel();
     private JTable table = new JTable();
     private Map<Integer, Object> mapLoja;
+    private int indiceSelect;
     
     /**
      * Creates new form LojaView
@@ -587,7 +588,8 @@ public class LojaView extends DefaultView {
             loja.setLojId(Integer.valueOf(txtCodigo.getText()));
 
             LojaController cidController = new LojaController(loja);
-            cidController.remove(loja.getCidId());
+            cidController.remove(loja.getLojId());
+            removeTableRow(model, indiceSelect);
             
             Message.show("Loja removida com sucesso.", Message.MSG_SUCESSO, JOptionPane.INFORMATION_MESSAGE);
         } catch (NonexistentEntityException ex) {
@@ -595,7 +597,7 @@ public class LojaView extends DefaultView {
             Logger.getLogger(LojaView.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             clearFields();
-            setEditableFields(false);
+            setEditableFields(false);            
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
@@ -658,6 +660,7 @@ public class LojaView extends DefaultView {
                     int codLoja =  Integer.valueOf(table.getValueAt(table.getSelectedRow(), 0).toString());
                     Loja loja = (Loja) mapLoja.get(codLoja);
                     populateFieldsView(loja);
+                    indiceSelect = table.getSelectedRow();
                 }
             }
         });
@@ -673,6 +676,8 @@ public class LojaView extends DefaultView {
 
             btnInit();
             setEditableFields(false);
+            
+            addTableRow(convertObjectToArrayObject(loja), model);
 
             Message.show("Loja cadastrada com sucesso.", Message.MSG_SUCESSO, JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception ex) {
@@ -690,6 +695,8 @@ public class LojaView extends DefaultView {
 
             btnInit();
             setEditableFields(false);
+            
+            updateTableRow(model, indiceSelect, convertObjectToArrayObject(loja));
 
             Message.show("Loja alterada com sucesso.", Message.MSG_SUCESSO, JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception ex) {
@@ -802,6 +809,10 @@ public class LojaView extends DefaultView {
         ckbStatus.setSelected(loja.isAtiva());
         txtDescricao.setText(loja.getLojDescricao());
         lblConteudoDtCadastro.setText(DateUtil.formatDate(loja.getLojDtcadastro()));
+    }
+    
+    private Object[] convertObjectToArrayObject(Loja loja) {
+        return new Object[]{loja.getLojId().toString(), loja.getLojNome()};
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

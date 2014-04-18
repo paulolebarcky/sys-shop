@@ -355,7 +355,7 @@ public class CidadeView extends DefaultView {
             Cidade cidRetorno = cidadeController.create();
             txtCodigo.setText(cidRetorno.getCidId().toString());
 
-            addTableRow(cidRetorno, model);
+            addTableRow(getObjectRow(cidRetorno), model);
 
             btnInit();
             setEditableFields(false);
@@ -380,7 +380,7 @@ public class CidadeView extends DefaultView {
             btnInit();
             setEditableFields(false);
             
-            updateTableRow(model, indiceSelect, cidRetorno);
+            updateTableRow(model, indiceSelect, getObjectRow(cidRetorno));
 
             Message.show("Cidade alterada com sucesso.", Message.MSG_SUCESSO, JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception ex) {
@@ -478,7 +478,7 @@ public class CidadeView extends DefaultView {
         List<Cidade> listCidades = cidadeController.findEntities();
 
         for (Cidade cidade : listCidades) {
-            addTableRow(cidade, model);
+            addTableRow(getObjectRow(cidade), model);
         }
     }
     
@@ -491,32 +491,6 @@ public class CidadeView extends DefaultView {
         txtCidade.setText("");
     }
     
-    /**
-     * Adiciona na tabela
-     * @param cidade
-     * @param model 
-     */
-    private void addTableRow(Cidade cidade, DefaultTableModel model) {
-        model.addRow(getObjectRow(cidade));
-    }
-    
-    /**
-     * Remove da tabela
-     * @param model
-     * @param indice 
-     */
-    private void removeTableRow(DefaultTableModel model, int indice) {
-        model.removeRow(indice);
-    }
-    
-    /**
-     * Atualiza linha da tabela.
-     */
-    private void updateTableRow(DefaultTableModel model, int indice, Cidade cidade) {
-        model.removeRow(indice);
-        model.insertRow(indice, getObjectRow(cidade));
-    }
-
     /**
      * Monta objeto para incluir na tabela.
      * 
